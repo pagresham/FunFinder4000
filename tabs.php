@@ -48,18 +48,21 @@
 			    </div>
 			    <div class="collapse navbar-collapse" id="myNavbar">
 			      <ul class="nav navbar-nav">
-			        <li class="active"><a href="index.php">Home</a></li>
-			        <li><a href="tabs.php">Tabs</a></li> 
-			       
+			      	<li><a href="index.php">Home</a></li>
+			        <li class="active"><a href="tabs.php">Tabs</a></li> 
 			      </ul>
-			      <ul class="nav navbar-nav navbar-right" style="margin: auto;">
-			        <form class="navbar-form navbar-left form-inline" style="border: none" id="index-nav-form">
-				      <div class="form-group">
-				      	<label for="search">Enter a zipcode to get started</label>
-				        <input type="text" class="form-control search-field" placeholder="Search" size="10">
+			      <ul class="nav navbar-nav navbar-right">
+			        <form class="navbar-form navbar-left form-inline" style="border: none">
+				      <div class="form-group" id="zip-here">
+				      	<label for="zip_input">Enter a zipcode to gtarted</label>
+				        
+
+
+				        <input type="text" id="zip_input" class="form-corl search-field" placeholder="Search" size="10" style="margin:auto;">
+
 
 				      </div>
-				      <button type="submit" class="btn btn-default">Go!</button>
+				      <button id="ind-nav-btn" type="submit" class="btn btn-default">Go!</button>
 				    </form>
 			      </ul>
 			      
@@ -67,22 +70,12 @@
 			  </div>
 			</nav>
 			</div>
-
-			<!-- <div class="index-slider">
-				<ul class="bxSlider_index">
-				  <li><img src="img/beerFlight-1300.jpg" /></li>
-				  <li><img src="img/skiers-1300.jpg" /></li>
-				  <li><img src="img/vt-hiking-1300.jpg" /></li>
-				  <li><img src="img/snowboarders-1300.jpg" /></li>
-					<li><img src="img/singletrack-1300.jpg" /></li>			
-					<li><img src="img/dam-1300.jpg" /></li>				
-				</ul>
-			</div> -->
-			
+	
 			<div class="container">
 			<!-- 	<input type="color" name="" value="here"> -->
 			</div>
 		</div>
+
 <?PHP
 include "footer.php";
 ?>
