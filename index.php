@@ -29,6 +29,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/FF.styles.css">
 	<script type="text/javascript" src="js/FF.app.js"></script>
+	<link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Fjalla One">
 </head>
 <body>
 	<div id="container">
@@ -44,7 +46,7 @@
 			        <span class="icon-bar"></span>
 			        <span class="icon-bar"></span> 
 			      </button>
-			      <a class="navbar-brand" href="#">FunFinder4000</a>
+			      <a class="navbar-brand" id="nav-brand" href="#">FunFinder4000</a>
 			    </div>
 			    <div class="collapse navbar-collapse" id="myNavbar">
 			      <ul class="nav navbar-nav">
@@ -66,6 +68,7 @@
 			    </div>
 			  </div>
 			</nav>
+
 			</div>
 
 			<!-- <div class="index-slider">

@@ -13,5 +13,9 @@ $(function(){
 
 	});
 
+	$('#funTabs').tabs({
+		active: 1
+	});
+
 
 });
