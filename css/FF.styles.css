@@ -80,9 +80,6 @@ html, body {
   #zip_label {
     dsplay: block;
     margin: auto; } }
-.active a {
-  color: red; }
-
 .search-btn {
   padding: .5em; }
 
@@ -131,12 +128,29 @@ body {
 
 .mission-quote {
   line-height: 2em;
-  text-align: center;
   margin-top: 7em;
-  padding: 0 4em; }
+  padding: 0 4em;
+  color: #eee;
+  font-size: 1.25em; }
 
 .mission-name {
   font: 4em/1.5em 'Timmana'; }
+
+#index-icons {
+  margin-top: 1em 0 2em 0; }
+
+#icon-desc {
+  margin-top: 1em;
+  font-size: 1.5em; }
+  #icon-desc a {
+    display: block; }
+
+.hover-bold a:hover {
+  color: #ddd; }
+
+#gallery-div img {
+  width: 10em;
+  height: 10em; }
 
 .tabs {
   min-height: 100%;
