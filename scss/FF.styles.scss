@@ -18,10 +18,11 @@ html, body {
 	// background-color: #333;
 }
 #footer {
-   position:absolute;
-   bottom:0;
-   width:100%;
-   height:8em;    
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   height: 8em;   
+   margin-top: 0em; 
 }
 
 //  ==============  End Stick Footer Style ================  //
@@ -31,9 +32,12 @@ html, body {
 	background-image: url("../img/foot-nav-1825.jpg");
 	background-color: lightblue;
 	background-position: center 90%;
+	background-repeat: no-repeat;
+	
+	background-size: 100%;
 }
 #container {
-	background-color: #555;
+	background-color: #444;
 }
 #body {
 	// background-color: #ccc;
@@ -54,7 +58,7 @@ html, body {
 .index-nav{
 	// background-image: url("../img/nav-bkg-1920.jpg");
     // background-color: transparent;
-    background-position: center 51%;
+    background-position: center center;
     // background-attachment: fixed;
     background-repeat: repeat-y;
     padding: 1em;
@@ -63,15 +67,22 @@ html, body {
 #index-nav {
 	 border: none;
 	 background-color: transparent;
-	 padding: 0 5em;
+	 // padding: 0 5em;
+	 z-index:1;
 } 
+#nav-brand {
+	font-size: 1.7em;
+}
 .index-jmb {
 	background-image: url("../img/nav-bkg-1920.jpg");
-	height: 15em;
+	height: 13em;
 }
 .tabs-nav {
 	background-image: url("../img/nav-bkg-1920.jpg");
-	height: 5em;
+	height: 6em;
+}
+.tabs-nav-smaller {
+	height: 7em;
 }
 #myNavbar {
 	background-color: transparent;
@@ -84,28 +95,32 @@ html, body {
 		background-color: #5EA3DB;
 	}
 	.search-field {
-		width: 100px;
+		// width: 100px;
 	}
 	
 	#index-nav-form {
-		margin: auto;
-		text-align: center;
+		// margin: auto;
+		// text-align: center;
 	}
 
 	#zip_input {
 		margin: auto;
+		display: block;
 	}
 
-	#zip_too {
+	#zip_label {
 		dsplay: block;
 		margin: auto;
 	}
-	#zip-here {
-			}
+	// #nav-go {
+	// 	margin: auto;
+	// 	display: block;
+	// }
 
 }
-.active  {
-	background: red;
+
+.active a {
+	color: red;
 }
 .search-btn {
 	padding: .5em;
@@ -117,9 +132,106 @@ body {
 	font-family: 'Fjalla One', sans-serif ;
 }
 
+// =========== Helper Classes ============// 
+.center {
+	margin: auto;
+}
+.uline {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 1em;
+}
+.uline2 {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 0em;
+}
+.center-text {
+	text-align: center;
+}
+
+
+// =========== End Helper Classes =========// 
+
+
+.mission {
+	// border: 1px solid #ccc;
+	// height: 20em;
+	background-color: #444;
+	color: #eee;
+}
+.index-gallery {
+	// border: 1px solid #ccc;
+	height: 20em;
+	background-color: #444;
+	color: #eee;
+}
+
+
+.map-aside {
+	// border: 1px solid #ccc;
+	border-radius: .5em;
+	height: 40em;
+	padding: 2em 1em 1em 1em;
+	background: linear-gradient(to right, #444, #999)
+}
+#index-map {
+	border: 15px solid black;
+	border-radius: .5em;
+	height: 37em;
+	-webkit-box-shadow: inset 0px 0px 22px 6px rgba(0,0,0,0.52);
+	-moz-box-shadow: inset 0px 0px 22px 6px rgba(0,0,0,0.52);
+	box-shadow: inset 0px 0px 22px 6px rgba(0,0,0,0.52);
+}
+.mission-quote {
+	line-height: 2em;
+	text-align: center;
+	margin-top: 7em;
+	padding: 0 4em;
+
+}
+.mission-name {
+	font: 4em/1.5em 'Timmana';
+}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// =====================  Begin Tabs Styles ====================== //
+
+#funTabs {
+
+}
+.tabs {
+	min-height: 100%;
+	background-color: #333;
+
+}
+#tab-container {
+	padding: 0;
+}
+.ui-tabs-anchor {
+	// width: 20%;
+	
+}
+#tab-nav li {
+
+	min-width: 15em;
+}
+.ui-tabs-tab {
+	text-align: center;
+
+}
 // * {
 // 	border: 1px solid black;
 // }

@@ -31,6 +31,8 @@
 	<script type="text/javascript" src="js/FF.app.js"></script>
 	<link rel="stylesheet" type="text/css"
           href="https://fonts.googleapis.com/css?family=Fjalla One">
+          <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Timmana">
 </head>
 <body>
 	<div id="container">
@@ -39,37 +41,73 @@
 			
 			<div class="index-jmb">
 				<nav class="navbar navbar-default" id="index-nav">
-			  <div class="container-fluid index-nav">
+			  <div class="container index-nav">
 			    <div class="navbar-header">
 			      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 			        <span class="icon-bar"></span>
 			        <span class="icon-bar"></span>
 			        <span class="icon-bar"></span> 
 			      </button>
-			      <a class="navbar-brand" id="nav-brand" href="#">FunFinder4000</a>
+			      <a data-toggle="tooltip" data-placement="left" title="Have Fun!!!" class="navbar-brand" id="nav-brand">FunFinder4000</a>
 			    </div>
 			    <div class="collapse navbar-collapse" id="myNavbar">
 			      <ul class="nav navbar-nav">
-			        <li class="active"><a href="index.php">Home</a></li>
-			        <li><a href="tabs.php">Tabs</a></li> 
+			        <li class="active"><a href="index.html">Home</a></li>
+			        <li><a href="tabs.html">Tabs</a></li> 
 			       
 			      </ul>
 			      <ul class="nav navbar-nav navbar-right" style="margin: auto;">
 			        <form class="navbar-form navbar-left form-inline" style="border: none" id="index-nav-form">
 				      <div class="form-group">
-				      	<label for="search">Enter a zipcode to get started</label>
+				      	<label for="search" id="zip-label">Enter a zipcode to get started</label>
 				        <input type="text" class="form-control search-field" placeholder="Search" size="10">
 
 				      </div>
-				      <button type="submit" class="btn btn-default">Go!</button>
+				      <button type="submit" class="btn btn-default" id="nav-go">Go!</button>
 				    </form>
 			      </ul>
 			      
 			    </div>
 			  </div>
-			</nav>
 
+			</nav>
 			</div>
+
+			<div class="row">
+				<div class="index-one-row">
+					<section class="col-sm-7">
+						<article class="col-sm-12 mission">
+							<div class="col-sm-7 id="mission-div">
+								<h2 class="uline2 mission-name">Fun Finder 4000</h2>
+								<h3 class="uline text-info">An online resource for hiking, biking, skiing, and brewery fun.</h3>
+								<p class="center-text text-success">Get up to date information on your favorite hiking and biking trails.</p>
+								<p class="center-text text-info">Locate new and interesting campgrounds.</p>
+								<p class="center-text text-info">Even explore local brewery offirings.</p>
+								
+							</div>
+							<div class="mission-quote text-success">
+									<p>FunFinder4K blends urrent map data with other sources of info to bring you an interesting mix of content in a Fun atmosphere.</p>
+									<h4>Enjoy, and Have Fun!</h4>	
+								</div>
+							<div class="col-sm-5"></div>
+						</article>
+						<div class="col-sm-12 index-gallery">
+							<!-- gallery -->
+							
+							<div id="gallery-div"></div>
+						</div>
+					</section>
+					<section class="col-sm-5">
+						<aside class="col-sm-12 map-aside">
+							<div id="index-map">
+							</div>
+						</aside>
+					</section>
+				</div>
+				
+			
+			
+
 
 			<!-- <div class="index-slider">
 				<ul class="bxSlider_index">
@@ -86,6 +124,16 @@
 			<!-- 	<input type="color" name="" value="here"> -->
 			</div>
 		</div>
-<?PHP
-include "footer.php";
-?>
+			<div id="footer">
+			<footer>
+				<div>here is some content in the footer</div>
+			</footer>
+		</div>
+	</div>
+
+
+</body>
+</html>
+<!-- <?PHP
+//include "footer.php";
+?> -->

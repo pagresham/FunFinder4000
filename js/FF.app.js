@@ -14,8 +14,12 @@ $(function(){
 	});
 
 	$('#funTabs').tabs({
-		active: 1
+		active: 0,
+		hide: { effect: "blind", duration: 500 },
+		show: { effect: "blind", duration: 500 },
+		heightStyle: "fill"
 	});
 
+	 $('[data-toggle="tooltip"]').tooltip(); 
 
 });

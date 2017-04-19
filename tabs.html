@@ -39,7 +39,7 @@
 			
 			<div class="tabs-nav">
 				<nav class="navbar navbar-default" id="index-nav">
-				  <div class="container-fluid index-nav">
+				  <div class="container index-nav">
 				    <div class="navbar-header">
 				      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 				        <span class="icon-bar"></span>
@@ -50,8 +50,8 @@
 				    </div>
 				    <div class="collapse navbar-collapse" id="myNavbar">
 				      <ul class="nav navbar-nav">
-				      	<li><a href="index.php">Home</a></li>
-				        <li class="active"><a href="tabs.php">Tabs</a></li> 
+				      	<li><a href="index.html">Home</a></li>
+				        <li class="active"><a href="tabs.html">Tabs</a></li> 
 				      </ul>
 				      <ul class="nav navbar-nav navbar-right">
 				        <form class="navbar-form navbar-left form-inline" style="border: none">
@@ -60,11 +60,11 @@
 					        
 
 
-					        <input type="text" id="zip_input" class="form-control search-field" placeholder="Search" size="10" style="margin:auto;">
+					        <input type="text" id="zip-label" class="form-control search-field" placeholder="Search" size="10" style="margin:auto;">
 
 
 					      </div>
-					      <button id="ind-nav-btn" type="submit" class="btn btn-default">Go!</button>
+					       <button type="submit" class="btn btn-default" id="nav-go">Go!</button>
 					    </form>
 				      </ul>
 				      
@@ -73,29 +73,59 @@
 			</nav>
 			</div>
 	
-			<div class="container-fluid" style="width: 100%">
-			<div id="funTabs">
+			<div class="container-fluid" id="tab-container">
+			<div id="funTabs" class="tabs">
 				  <!-- Tabs anchor 'tabs' -->
-				  <ul>
-				    <li><a href="#fragment-1">Hiking, Biking, Camping, Oh My!</a></li>
+				  <ul id="tab-nav" class="">
+				    <li><a href="#fragment-1">Hiking, Biking, Camping</a></li>
 				    <li><a href="#fragment-2">Breweries and Beer</a></li>
 				    <li><a href="#fragment-3">Snow Sports</a></li>
-				    <li><a href="#fragment-3">Fun Photos</a></li>
+				    <li><a href="#fragment-4">Fun Photos</a></li>
 				  </ul>
 				<!-- Begin Tabbed sections -->
-				  <div id="fragment-1">
+				  <div id="fragment-1" class="tabs">
+				    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+				    <p>this</p>
+				    <p>this</p>
+				    <p>this</p>
+				    <p>this</p>
+				    <p>this</p>
+				    <p>this</p>
+				    <p>this</p>
+				    <p>this</p>
+				    <p>this</p>
+				    <p>this</p>
+				    <p>this</p>
+				    <p>this</p>
+				    <p>this</p>
+				    <p>this</p>
+				    <p>this</p>
+				    <p>this</p>
+				  </div>
+				  <div id="fragment-2" class="tabs">
+				    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+				  </div>
+				  <div id="fragment-3" class="tabs">
 				    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
 				  </div>
-				  <div id="fragment-2">
-				    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-				  </div>
-				  <div id="fragment-3">
+				  <div id="fragment-4" class="tabs">
 				    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
 				  </div>
 				</div>
 			</div>
 		</div>
+			<div id="footer">
+			<footer>
+				<div>here is some content in the footer</div>
+			</footer>
+		</div>
+	</div>
 
-<?PHP
-include "footer.php";
+
+</body>
+</html>
+
+<!-- <?PHP 
+//include "footer.php";
 ?>
