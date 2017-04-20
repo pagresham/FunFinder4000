@@ -1,3 +1,4 @@
+
 //  ============== Begin Sticky Footer Style ================  //
 
 html, body {
@@ -7,20 +8,20 @@ html, body {
   padding: 0; }
 
 #container {
-   min-height:100%;
-   position:relative; 
+   // min-height:100%;
+   // position:relative; 
    }
 
 #header { }
 
 #body {
-   padding:px;
+   
    min-height: 100%;
-   padding-bottom: 8em;   /* Height of the footer */
+   // padding-bottom: 8em;   /* Height of the footer */
 	// background-color: #333;
 }
 #footer {
-   position: absolute;
+   // position: fixed;
    bottom: 0;
    width: 100%;
    height: 8em;   
@@ -139,6 +140,7 @@ body {
 .uline2 {
 	border-bottom: 1px solid #ccc;
 	padding-bottom: 0em;
+	color: white;
 }
 
 // =========== End Helper Classes =========// 
@@ -181,6 +183,10 @@ body {
 }
 .mission-name {
 	font: 4em/1.5em 'Timmana';
+	color: white;
+}
+#mission-name {
+	color: white;
 }
 #index-icons {
 	margin-top: 1em 0 2em 0;
@@ -232,27 +238,26 @@ body {
 
 }
 
-
-
-
-
-
-
-
-
-
 // =====================  Begin Tabs Styles ====================== //
 
 #funTabs {
-
+	
+	// min-height: 100%;
 }
+.ui-widget-content {
+	color: white;
+}
+.tabs div {
+		color: white;
+	}
 .tabs {
-	min-height: 100%;
+	// min-height: 100%;
 	background-color: #333;
 
 }
 #tab-container {
 	padding: 0;
+	// height: 100%;
 }
 .ui-tabs-anchor {
 	// width: 20%;
@@ -265,6 +270,28 @@ body {
 .ui-tabs-tab {
 	text-align: center;
 
+}
+#fragment-1, #fragment-2, 
+#fragment-4, #fragment-3 {
+	color: white;
+}
+.ui-tabs-panel {
+	color: white;
+}
+.tab-form {
+	min-height: 12em;
+	border: 2px solid red;
+	padding: 0em;
+}
+.tab-info {
+	min-height: 12em;
+	border: 2px solid red;
+	padding: 0em;
+}
+.tab-map {
+	min-height: 24em;
+	border: 2px solid red;
+	padding: 0em;
 }
 // * {
 // 	border: 1px solid black;

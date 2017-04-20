@@ -1,3 +1,4 @@
+
 //  ============== Begin Sticky Footer Style ================  //
 
 html, body {
@@ -14,7 +15,7 @@ html, body {
 #header { }
 
 #body {
-   padding:px;
+   
    min-height: 100%;
    // padding-bottom: 8em;   /* Height of the footer */
 	// background-color: #333;
@@ -139,6 +140,7 @@ body {
 .uline2 {
 	border-bottom: 1px solid #ccc;
 	padding-bottom: 0em;
+	color: white;
 }
 
 // =========== End Helper Classes =========// 
@@ -159,13 +161,13 @@ body {
 .map-aside {
 	// border: 1px solid #ccc;
 	border-radius: .5em;
-	// height: 40em;
-	padding: 2em 1em 2em 1em;
+	height: 40em;
+	padding: 1em;
 }
 #index-map {
 	border: 15px solid black;
 	border-radius: .5em;
-	height: 37em;
+	height:100%;
 	-webkit-box-shadow: inset 0px 0px 22px 6px rgba(0,0,0,0.52);
 	-moz-box-shadow: inset 0px 0px 22px 6px rgba(0,0,0,0.52);
 	box-shadow: inset 0px 0px 22px 6px rgba(0,0,0,0.52);
@@ -181,6 +183,10 @@ body {
 }
 .mission-name {
 	font: 4em/1.5em 'Timmana';
+	color: white;
+}
+#mission-name {
+	color: white;
 }
 #index-icons {
 	margin-top: 1em 0 2em 0;
@@ -229,23 +235,23 @@ body {
 }
 #index-panel {
 	display: none;
-
 }
-
-
-
-
-
-
-
-
-
+#question-mark {
+	margin-bottom: 1em;
+}
 
 // =====================  Begin Tabs Styles ====================== //
 
 #funTabs {
-
+	
+	// min-height: 100%;
 }
+.ui-widget-content {
+	color: white;
+}
+.tabs div {
+		color: white;
+	}
 .tabs {
 	min-height: 100%;
 	background-color: #333;
@@ -253,6 +259,7 @@ body {
 }
 #tab-container {
 	padding: 0;
+	// height: 100%;
 }
 .ui-tabs-anchor {
 	// width: 20%;
@@ -265,6 +272,23 @@ body {
 .ui-tabs-tab {
 	text-align: center;
 
+}
+#fragment-1, #fragment-2, 
+#fragment-4, #fragment-3 {
+	color: white;
+}
+.ui-tabs-panel {
+	color: white;
+}
+.tab-form {
+	min-height: 10em;
+	border: 2px solid red;
+}
+.tab-info {
+	min-height: 10em;
+}
+.tab-map {
+	min-height: 20em;
 }
 // * {
 // 	border: 1px solid black;

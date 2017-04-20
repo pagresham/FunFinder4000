@@ -4,8 +4,8 @@
 	<title>Fun Finder 4000</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name=”Description” content=”Finder 4000 is a tool to locate prime recreational opportunities close to home or when traveling. We provide content about food, beer, hiking, camping and other pursuits.”>
-	<meta name=”Keywords” content=”fun beer food wine hiking camping skiing biking fishing music vermont colorado”>
+	<!-- <meta name=”Description” content=”Finder 4000 is a tool to locate prime recreational opportunities close to home or when traveling. We provide content about food, beer, hiking, camping and other pursuits.”> -->
+	<!-- <meta name=”Keywords” content=”fun beer food wine hiking camping skiing biking fishing music vermont colorado”> -->
   	<meta name="author" content="Pierce Gresham">
 	<!-- Bootstrap CSS CDN -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -55,14 +55,14 @@
 			    <div class="collapse navbar-collapse" id="myNavbar">
 			      <ul class="nav navbar-nav">
 			        <li class="active"><a href="index.html">Home</a></li>
-			        <li><a href="tabs.html">Tabs</a></li> 
+			        <li><a href="tabs.html">Explore</a></li> 
 			       
 			      </ul>
 			      <ul class="nav navbar-nav navbar-right" style="margin: auto;">
 			        <form class="navbar-form navbar-left form-inline" style="border: none" id="index-nav-form">
 				      <div class="form-group">
-				      	<label for="search" id="zip-label">Enter a zipcode to get started</label>
-				        <input type="text" class="form-control search-field" placeholder="Search" size="10">
+				      	<label for="zip-input" id="zip-label">Enter a zipcode to get started</label>
+				        <input type="email" id="zip-input" pattern="^[0-9]{5}-?([0-9]{4})?" class="form-control search-field" placeholder="Search" size="10" style="margin:auto;">
 
 				      </div>
 				      <button type="submit" class="btn btn-default" id="nav-go">Go!</button>
@@ -79,16 +79,16 @@
 				<div class="index-one-row">
 					<section class="col-sm-7">
 						<article class="col-sm-12 mission">
-							<div class="col-sm-7 id="mission-div">
-								<h2 class="uline2 mission-name">Fun Finder 4000</h2>
+							<div class="col-sm-7" id="mission-div">
+								<h2 class="uline2 mission-name" id="mission-name">Fun Finder 4000</h2>
 								<h3 class="uline text-info">An online resource for hiking, biking, skiing, and brewery fun.</h3>
 								
 								
 								<div class="text-center" id="index-icons" data-toggle="collapse" data-target="#icon-desc">
-									<img src="img/hiker-icon-100.png">
-									<img src="img/mtnBike-icon-100.png">
-									<img src="img/beer-icon-100.png">
-									<img src="img/camping-icon-100.png">
+									<img src="img/combined-icons.png" alt="Fun!">
+									<!-- <img src="img/mtnBike-icon-100.png" alt="Fun!">
+									<img src="img/beer-icon-100.png" alt="Fun!">
+									<img src="img/camping-icon-100.png" alt="Fun!"> -->
 								</div>
 								<div id="icon-desc" class="collapse hover-bold">
 									<a href="tabs.html#0" class="text-success"><span class="glyphicon glyphicon-hand-right"></span>  Hiking and Biking - Get up to date information on your favorite hiking and biking trails.</a>
@@ -103,7 +103,7 @@
 									<p>FunFinder4K blends current map data with other sources of info to bring you an interesting mix of content in a Fun atmosphere.</p>
 									<h4>Enjoy, and Have Fun!</h4>	
 									<div class="family-biking">
-										<img src="img/family-biking.png">
+										<img src="img/family-biking.png"  alt="Fun!">
 									</div>
 								</div>
 							<div class="col-sm-5"></div>
@@ -122,42 +122,53 @@
 								<div class="img-overlay">
 									<img src="img/singletrack.jpg" id="g3" class="img-rounded" alt="">
 								</div>
-								
+								<div class="img-overlay">
+									<img src="img/snowboarder-gallery.jpg" id="g4" class="img-rounded" alt="">
+								</div>	
 							</div>
+
 							<div id="question-mark">
-								<img data-toggle="tooltip" data-placement="top" src="img/question-mark.png" title="Select an image to see more details." style="height:30px; cursor: pointer;">
+								<img data-toggle="tooltip" data-placement="top" src="img/question-mark.png" title="Select an image to see more details." style="height:30px; cursor: pointer;"  alt="Fun!">
 							</div>
 							
 							
 							<div id="index-panel" class="panel panel-default">
-						    <div id="panel0" class="panel-body"></div>
-						    <div id="panel1" class="panel-body"></div>
+						    	<div id="panel0" class="panel-body"></div>
+						    	<div id="panel1" class="panel-body"></div>
+						    </div>
 						  </div>
 
 					</section>
-					<section class="col-sm-5">
+					<!-- <section class="col-sm-5">
 						<aside class="col-sm-12 map-aside">
 							<div id="index-map">
 							</div>
 						</aside>
-					</section>
+					</section> -->
+					<aside class="map-aside">
+						<div id="index-map" style="margin: 2em;"></div>
+					</aside>
+				
+				
+						
+			
 					
 
 				</div>
 				
 		<!--  May have a div out of place somwhere -->
 			
-			<div class="container">
+			<!-- <div class="container"> -->
 			<!-- 	<input type="color" name="" value="here"> -->
-			</div>
+			<!-- </div> -->
 		</div>
 			<div id="footer">
 			<footer>
-				<div>here is some content in the footer</div>
+				
 			</footer>
 		</div>
 	</div>
-
+	</div>
 
 </body>
 </html>

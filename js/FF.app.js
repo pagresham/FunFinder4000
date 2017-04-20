@@ -1,7 +1,7 @@
 $(function(){
 
 	// ======== Vars =============//
-	
+	// console.log(window.location)
 	var gal;
 	var indexMap;
 	var map;
@@ -39,13 +39,29 @@ $(function(){
 	});
 
 
+	// Listener for GO button at zip search field
+	// Adds zip code onto url string when request is sent
+	$('#nav-go').click(function(event) {
+		event.preventDefault();
+		var zip = $('#zip-input').val();
+
+		// Some addtional validation for the zip code
+		var patt = new RegExp("^[0-9]{5}-?([0-9]{4})?$");
+		if(zip.trim().length !== 0 && zip.length <= 10) {
+			if(patt.test(zip)) {
+				var newLocation = "tabs.html#"+zip;
+				window.location = newLocation;	
+			}
+		}
+	});
+
+
+
+
 	// ===========  Functions ran at page load ================= //
 
 	// Initialize tooltips 
 	$('[data-toggle="tooltip"]').tooltip(); 
-
-	// set tabs functionality
-	setTabs();
 
 	// 'get' data from file for image data //
 	$.getJSON("helpers/gallery.js", function(data) {
@@ -61,29 +77,6 @@ $(function(){
 
 
 // =========== Function Definitions ============= //
-
-/**
- * First looks for a HASHED value in incoming url
- * If a has value is present, opens correct tab.
- */
-	function setTabs(){
-		var hash;
-		// Get hash value from url when page loads
-		if (window.location.hash){
-			hash = window.location.hash;
-			hash = hash.substring(1);
-			console.log("the hash is: "+hash);
-		}
-		else hash = 0;
-		
-		$('#funTabs').tabs({
-			active: hash,
-			hide: { effect: "blind", duration: 500 },
-			show: { effect: "blind", duration: 500 },
-			heightStyle: "fill"
-		});
-	}
-
 
 	/**
 	 * Check if GEOLOCATION is available to user.
@@ -103,9 +96,6 @@ $(function(){
 	    	latLng = { lat: 44.452030, lng: -73.112647};
 	    	default1_mapInit(latLng);
 	    }
-	    return latLng;
-	   	
-	 
 	}
 
 	/**
@@ -118,7 +108,7 @@ $(function(){
 			center: new google.maps.LatLng(loc.lat, loc.lng),
 			zoom: 10
 		};
-		console.log(mapOptions);
+		//console.log(mapOptions);
 		var indexMap = new google.maps.Map($('#index-map').get(0), mapOptions);
 	}
 	/**
@@ -128,7 +118,7 @@ $(function(){
 	 *  - use to build content string
 	 */
 	function img_mapInit(loc, i) {
-		console.log(loc);
+		//console.log(loc);
 		var latLng = new google.maps.LatLng(loc.lat, loc.lng);
 		var type = (i === "0" || i === "1") ? "satellite" : "terrain";
 		var mapOptions = {
