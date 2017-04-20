@@ -31,8 +31,10 @@
 	<script type="text/javascript" src="js/FF.app.js"></script>
 	<link rel="stylesheet" type="text/css"
           href="https://fonts.googleapis.com/css?family=Fjalla One">
-          <link rel="stylesheet" type="text/css"
+  <link rel="stylesheet" type="text/css"
           href="https://fonts.googleapis.com/css?family=Timmana">
+	<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJl1s_ElOQABn5g9toMSrBQoKtBPv6NFs"></script>
 </head>
 <body>
 	<div id="container">
@@ -97,25 +99,43 @@
 								
 
 							</div>
-							<div class="mission-quote text-success text-right block-quote">
+							<div class="mission-quote text-success text-right">
 									<p>FunFinder4K blends current map data with other sources of info to bring you an interesting mix of content in a Fun atmosphere.</p>
 									<h4>Enjoy, and Have Fun!</h4>	
+									<div class="family-biking">
+										<img src="img/family-biking.png">
+									</div>
 								</div>
 							<div class="col-sm-5"></div>
 						</article>
 						<div class="col-sm-12 index-gallery">
 							<div id="gallery-div">
 								<div class="img-overlay">
-									<img src="img/snowboarders-1300.jpg" class="img-circle" alt="">
+									<img src="img/kids-utah.jpg" id="g0" class="img-rounded" alt="">
 								</div>
 								<div class="img-overlay">
-									<img src="" class="img-circle img-responsive" alt="">
+									<img src="img/avery-taps.JPG" id="g1" class="img-rounded" alt="">
 								</div>
 								<div class="img-overlay">
-									<img src="" class="img-circle img-responsive" alt="">
+									<img src="img/skiin-sam.jpg" id="g2" class="img-rounded" alt="">
+								</div>
+								<div class="img-overlay">
+									<img src="img/singletrack.jpg" id="g3" class="img-rounded" alt="">
+								</div>
+								<div class="img-overlay">
+									<img src="img/snowboarder-gallery.jpg" id="g4" class="img-rounded" alt="">
 								</div>
 							</div>
-						</div>
+							<div id="question-mark">
+								<img data-toggle="tooltip" data-placement="top" src="img/question-mark.png" title="Select an image to see more details." style="height:30px; cursor: pointer;">
+							</div>
+							
+							
+							<div id="index-panel" class="panel panel-default">
+						    <div id="panel0" class="panel-body"></div>
+						    <div id="panel1" class="panel-body"></div>
+						  </div>
+
 					</section>
 					<section class="col-sm-5">
 						<aside class="col-sm-12 map-aside">
@@ -127,20 +147,7 @@
 
 				</div>
 				
-			
-			
-
-
-			<!-- <div class="index-slider">
-				<ul class="bxSlider_index">
-				  <li><img src="img/beerFlight-1300.jpg" /></li>
-				  <li><img src="img/skiers-1300.jpg" /></li>
-				  <li><img src="img/vt-hiking-1300.jpg" /></li>
-				  <li><img src="img/snowboarders-1300.jpg" /></li>
-					<li><img src="img/singletrack-1300.jpg" /></li>			
-					<li><img src="img/dam-1300.jpg" /></li>				
-				</ul>
-			</div> -->
+		<!--  May have a div out of place somwhere -->
 			
 			<div class="container">
 			<!-- 	<input type="color" name="" value="here"> -->
@@ -159,3 +166,5 @@
 <!-- <?PHP
 //include "footer.php";
 ?> -->
+
+

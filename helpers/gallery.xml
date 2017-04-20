@@ -1,0 +1,37 @@
+<gallery>
+		<photo>
+			<name>Utah Camping</name>
+			<activity>Camping</activity>
+			<lat>38.622398</lat>
+			<lng>-109.685084</lng>
+			<description>Exlore the vast Utah wilderness. From sparse deserts to green rivers and more. This state does not dissapoint.</description>
+		</photo>
+		<photo>
+			<name>Avery Brewing Company</name>
+			<activity>Breweries</activity>
+			<lat>40.062620</lat>
+			<lng>-105.205161</lng>
+			<description>This Boulder, Colorado brewery has lots to offer. Ales, IPAs and Sours Oh My!</description>
+		</photo>
+		<photo>
+			<name>Bluebird Days</name>
+			<activity>Snow Sports</activity>
+			<lat>38.959947</lat>
+			<lng>-106.987870</lng>
+			<description>The Colorado Backcountry has thousands of miles of trails, or no trails. You decide!</description>
+		</photo>
+		<photo>
+			<name>Epic Singletrack</name>
+			<activity>Biking</activity>
+			<lat>38.832016</lat>
+			<lng>-106.863892</lng>
+			<description>Lush wildflower meadows abound on this trail near Crested Butte South, Colorado. </description>
+		</photo>
+		<photo>
+			<name>Shred the Gnar!</name>
+			<activity>Snow Sports</activity>
+			<lat>44.423172</lat>
+			<lng>-72.829898</lng>
+			<description>These folks know how to do it right! Don't get lost in all that powder.</description>
+		</photo>
+</gallery>

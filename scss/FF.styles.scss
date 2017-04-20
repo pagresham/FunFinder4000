@@ -160,9 +160,13 @@ body {
 }
 .index-gallery {
 	// border: 1px solid #ccc;
-	height: 20em;
+	min-height: 20em;
 	background-color: #444;
 	color: #eee;
+}
+#index-map {
+	height: 100%;
+	width: 100%;
 }
 
 
@@ -183,10 +187,11 @@ body {
 }
 .mission-quote {
 	line-height: 2em;
-	margin-top: 7em;
-	padding: 0 4em;
+	margin-top: 3em;
+	padding: 0 2em;
 	color: #eee;
 	font-size: 1.25em;
+	text-align: center;
 
 }
 .mission-name {
@@ -194,24 +199,53 @@ body {
 }
 #index-icons {
 	margin-top: 1em 0 2em 0;
+	img {
+		cursor: pointer;
+	}
 }
 #icon-desc {
 	margin-top: 1em;
 	font-size: 1.5em;
 	a {
 		display: block;
+		margin-top: .5em;
+	
 	}
 }
 .hover-bold a:hover {
 	color: #ddd;
 }
+.index-gallery {
+	margin-top: 2em;
+	text-align: center;
+
+}
 #gallery-div img {
 	width: 10em;
 	height: 10em;
+	margin: 0 1em 1em 1em;
+	cursor: pointer;
 }
+#gallery-div img:hover {
+		opacity: .7;
+	}
+#gallery-div div {
+	display: inline-block;
+}
+.family-biking img {
+	width: 300px;
+}
+#index-panel {
+	// background-color: lightblue; 
+	background-color: rgba(200,200,200, .3);
+	border: none;
+	margin-top: .5em;
+	text-align: left;
+}
+#index-panel {
+	display: none;
 
-
-
+}
 
 
 
