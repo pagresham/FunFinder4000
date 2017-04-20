@@ -130,10 +130,11 @@ $(function(){
 	function img_mapInit(loc, i) {
 		console.log(loc);
 		var latLng = new google.maps.LatLng(loc.lat, loc.lng);
+		var type = (i === "0" || i === "1") ? "satellite" : "terrain";
 		var mapOptions = {
 			center: latLng,
-			zoom: 10,
-			mapTypeId: "terrain"
+			zoom: 14,
+			mapTypeId: type
 
 		};
 		var indexMap = new google.maps.Map($('#index-map').get(0), mapOptions);

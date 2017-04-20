@@ -4,11 +4,18 @@ html, body {
   margin: 0;
   padding: 0; }
 
+#container {
+  min-height: 100%;
+  position: relative; }
+
 #body {
   padding: px;
-  min-height: 100%; }
+  min-height: 100%;
+  padding-bottom: 8em;
+  /* Height of the footer */ }
 
 #footer {
+  position: absolute;
   bottom: 0;
   width: 100%;
   height: 8em;
@@ -172,4 +179,4 @@ body {
 .ui-tabs-tab {
   text-align: center; }
 
-/*# sourceMappingURL=FF.styles.css.map */
+/*# sourceMappingURL=FF.tab.styles.css.map */
