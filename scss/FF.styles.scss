@@ -114,6 +114,13 @@ body {
 
 }
 // End @Media Rlule //
+@media only screen and (max-width: 1550px) {
+	#index-map {
+		margin-bottom: 2em;
+	}
+}
+
+above 1550 map needs margin bottom
 
 .search-btn {
 	padding: .5em;
