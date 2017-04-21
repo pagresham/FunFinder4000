@@ -52,8 +52,8 @@
 				    </div>
 				    <div class="collapse navbar-collapse" id="myNavbar">
 				      <ul class="nav navbar-nav">
-				      	<li><a href="index.html">Home</a></li>
-				        <li class="active"><a href="tabs.html">Explore</a></li> 
+				      	<li><a href="index.php">Home</a></li>
+				        <li class="active"><a href="tabs.php">Explore</a></li> 
 				      </ul>
 				      <ul class="nav navbar-nav navbar-right">
 				        <form class="navbar-form navbar-left form-inline" style="border: none">
@@ -107,11 +107,46 @@
 				   <section>
 				    	<div class="row">
 				    		<div class="col-sm-6">
-				    			<div class="col-sm-12 tab-form">form here</div>
-				    			<div class="col-sm-12 tab-info">Return info here</div>
+				    			<div class="col-sm-12 tab-form" id="beer-form">
+				    			
+										<!-- Brewery Form -->
+
+										<h4 class='text-center'>Search for Breweries</h4>
+
+										<form class="form-inline beer-form">
+										  <div class="form-group">
+										    <label class="col-sm-3" for="city-name">City Name Here</label>
+
+										    <input class="form-control col-sm-3" type="text" name="city" id="city-name" placeholder="City Name" placeholder="City Name" maxlength="25">
+
+										    <input class="btn-info form-control col-sm-3" type="button" name="submit-city" id="city-btn" value="Search By City">
+
+										  </div>
+										</form>
+										
+										<form action="" class="form-inline beer-form">
+											<div class="form-group">
+												<label class="col-sm-3" for="zip-btn">Enter a zip code</label>
+												<input class="form-control col-sm-3" type="text" name="zip" id="zip" placeholder="ZIP Code" maxlength="10">
+												<input class="btn-info form-control col-sm-3" type="button" name="submit-zip" id="zip-btn" value="Search By Zip Code">
+											</div>
+										</form>
+										<form action="" class="form-inline beer-form">
+											<input class="btn-success form-control" type="button" name="locate" id="locate" value="Auto-Locate">
+										</form>
+
+				    			</div>
+				    			<div class="col-sm-12 tab-info" id="beer-results-panel">
+										<div class="row">
+										<h4 class='text-center'>Breweries Info</h4>
+											<div id="output" class="col-sm-12">
+												
+											</div>
+										</div>
+				    			</div>
 				    		</div>
 				    		<div class="col-sm-6">
-				    			<div  class="col-sm-12 tab-map" id="tab-map1">Map here</div>
+				    			<div class="col-sm-12 tab-map" id="tab-map1">Map here</div>
 				    		</div>
 								<div class="col-sm-12" style="height: 5em;border: 1px solid red;">bottom div</div>
 				    	</div>
@@ -150,7 +185,7 @@
 		</div>
 			<div id="footer">
 			<footer>
-				
+				<div id="output"></div>
 			</footer>
 		</div>
 	</div>

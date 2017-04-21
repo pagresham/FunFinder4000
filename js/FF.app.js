@@ -49,7 +49,7 @@ $(function(){
 		var patt = new RegExp("^[0-9]{5}-?([0-9]{4})?$");
 		if(zip.trim().length !== 0 && zip.length <= 10) {
 			if(patt.test(zip)) {
-				var newLocation = "tabs.html#"+zip;
+				var newLocation = "tabs.php#"+zip;
 				window.location = newLocation;	
 			}
 			else {alert("Please enter a valid zip code")}

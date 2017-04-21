@@ -54,8 +54,8 @@
 			    </div>
 			    <div class="collapse navbar-collapse" id="myNavbar">
 			      <ul class="nav navbar-nav">
-			        <li class="active"><a href="index.html">Home</a></li>
-			        <li><a href="tabs.html">Explore</a></li> 
+			        <li class="active"><a href="index.php">Home</a></li>
+			        <li><a href="tabs.php">Explore</a></li> 
 			       
 			      </ul>
 			      <ul class="nav navbar-nav navbar-right" style="margin: auto;">
@@ -91,10 +91,10 @@
 									<img src="img/camping-icon-100.png" alt="Fun!"> -->
 								</div>
 								<div id="icon-desc" class="collapse hover-bold">
-									<a href="tabs.html#0" class="text-success"><span class="glyphicon glyphicon-hand-right"></span>  Hiking and Biking - Get up to date information on your favorite hiking and biking trails.</a>
-									<a href="tabs.html#0" class=" text-info"><span class="glyphicon glyphicon-hand-right"></span>  Camping - Locate new and interesting campgrounds.</a>
-									<a href="tabs.html#2" class=" text-success"><span class="glyphicon glyphicon-hand-right"></span>  Snow Sports - Find skiing and snowboarding destionations</a>
-									<a href="tabs.html#1" class=" text-info"><span class="glyphicon glyphicon-hand-right"></span>  Breweries - Explore local brewery offirings.</a>
+									<a href="tabs.php#0" class="text-success"><span class="glyphicon glyphicon-hand-right"></span>  Hiking and Biking - Get up to date information on your favorite hiking and biking trails.</a>
+									<a href="tabs.php#0" class=" text-info"><span class="glyphicon glyphicon-hand-right"></span>  Camping - Locate new and interesting campgrounds.</a>
+									<a href="tabs.php#2" class=" text-success"><span class="glyphicon glyphicon-hand-right"></span>  Snow Sports - Find skiing and snowboarding destionations</a>
+									<a href="tabs.php#1" class=" text-info"><span class="glyphicon glyphicon-hand-right"></span>  Breweries - Explore local brewery offirings.</a>
 								</div>
 								
 

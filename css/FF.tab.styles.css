@@ -1,6 +1,5 @@
 html, body {
   font-family: sans-serif;
-  height: 100%;
   margin: 0;
   padding: 0; }
 
@@ -14,7 +13,6 @@ html, body {
   /* Height of the footer */ }
 
 #footer {
-  position: absolute;
   bottom: 0;
   width: 100%;
   height: 8em;
@@ -212,5 +210,24 @@ body {
   min-height: 36em;
   border: 2px solid red;
   padding: 0em; }
+
+.beer-form label,
+.beer-form input {
+  margin: .5em .2em; }
+
+#beer-results-panel {
+  min-height: 22em; }
+
+#beer-form {
+  min-height: 14em; }
+
+#output {
+  min-height: 18em; }
+
+.ui-widget-content .brewName {
+  color: white; }
+
+.brew-head {
+  margin: 4em 0em; }
 
 /*# sourceMappingURL=FF.tab.styles.css.map */
