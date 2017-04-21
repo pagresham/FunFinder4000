@@ -15,9 +15,13 @@ html, body {
 
 #footer {
   position: absolute;
+  bottom: 0;
   width: 100%;
-  height: 8em;
-  margin-top: 0em; }
+  height: 8em; }
+
+.clearfix {
+  clear: both;
+  margin-bottom: 2em; }
 
 body {
   background-color: #444; }
@@ -46,7 +50,7 @@ body {
 .index-jmb {
   background-image: url("../img/nav-bkg-1920.jpg");
   background-position: center;
-  height: 10em; }
+  height: 13em; }
 
 .tabs-nav {
   background-image: url("../img/nav-bkg-1920.jpg");
@@ -70,10 +74,10 @@ body {
 
   #zip_label {
     dsplay: block;
-    margin: auto; } }
-@media only screen and (min-width: 1550px) {
-  #index-map {
-    margin-bottom: 5em; } }
+    margin: auto; }
+
+  #footer {
+    display: none; } }
 .search-btn {
   padding: .5em; }
 
@@ -101,6 +105,9 @@ body {
 .index-gallery {
   background-color: #444;
   color: #eee; }
+
+#index-map {
+  height: 40em; }
 
 .map-aside {
   border-radius: .5em;

@@ -1,7 +1,7 @@
 
 //  ============== Begin Sticky Footer Style ================  //
 
-html, body {
+html,body {
   font-family: sans-serif;
   height: 100%;
   margin: 0;
@@ -18,18 +18,24 @@ html, body {
    
    min-height: 100%;
    padding-bottom: 8em;   /* Height of the footer */
-	// background-color: #333;
+
 }
 #footer {
    position: absolute;
-   // bottom: 0;
+   bottom: 0;
    width: 100%;
-   height: 8em;   
-   margin-top: 0em; 
+   height: 8em;  
+
+
 }
 
-//  ==============  End Stick Footer Style ================  //
 
+
+//  ==============  End Stick Footer Style ================  //
+.clearfix {
+	clear: both;
+	margin-bottom: 2em;
+}
 body {
 	background-color: #444;
 }
@@ -74,7 +80,7 @@ body {
 .index-jmb {
 	background-image: url("../img/nav-bkg-1920.jpg");
 	background-position: center;
-	height: 10em;
+	height: 13em;
 }
 
 // Style for Tabs Page nav bar //
@@ -98,6 +104,7 @@ body {
 		background-color: #5EA3DB;
 	}
 
+
 	.search-field {
 		// width: 100px;
 	}
@@ -111,16 +118,12 @@ body {
 		dsplay: block;
 		margin: auto;
 	}
-
-}
-// End @Media Rlule //
-@media only screen and (min-width: 1550px) {
-	#index-map {
-		margin-bottom: 5em;
+	#footer {
+		display: none;
 	}
+	
+
 }
-
-
 
 .search-btn {
 	padding: .5em;
@@ -164,12 +167,14 @@ body {
 #index-map {
 	// min-height: 100%;
 	// min-width: 100%;
+	height: 40em;
 }
 .map-aside {
 	// border: 1px solid #ccc;
 	border-radius: .5em;
 	height: 40em;
 	padding: 1em;
+	// display: inline-block;
 }
 #index-map {
 	border: 15px solid black;

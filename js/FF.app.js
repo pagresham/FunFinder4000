@@ -52,6 +52,7 @@ $(function(){
 				var newLocation = "tabs.html#"+zip;
 				window.location = newLocation;	
 			}
+			else {alert("Please enter a valid zip code")}
 		}
 	});
 
