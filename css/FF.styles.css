@@ -47,6 +47,10 @@ body {
 #nav-brand {
   font-size: 1.7em; }
 
+.navbar-default .navbar-nav > .active > a {
+  background-color: rgba(200, 200, 200, 0.5);
+  border-radius: 5px; }
+
 .index-jmb {
   background-image: url("../img/nav-bkg-1920.jpg");
   background-position: center;

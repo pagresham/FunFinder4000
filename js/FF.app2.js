@@ -33,7 +33,6 @@ $(function(){
 				window.location = newLocation;
 				location.reload();
 			}
-
 		}
 	});
 
@@ -50,8 +49,7 @@ $(function(){
 			setTimeout(function(){
 				// You wait just a second!!! //
 				// This helped with my map not loading on tb selection //
-				mapInit(currentLoc, id);}, 1000);
-				// mapInit(currentLoc, id);
+				mapInit(currentLoc, id);}, 800);
 		});
 	});
 	
@@ -70,10 +68,59 @@ $(function(){
 		search_zip();
 	});
 	$('#locate').click(function(){
-		//auto_search();
 		find_brewery("auto", [myGeoLocation.lat, myGeoLocation.lng]);
+	});
+
+
+	// =========== Trails Tab Listeners ======================== //
+	
+	$('#trail-search-map').click(function(event) {
+		event.preventDefault();
+
+		var trailParams = [];
+		if($('#limit-select').val() !== "") {
+			trailParams['limit'] = $('#limit-select').val(); 	
+		}
+		if($('#activity-select').val() !== "") {
+			trailParams['activity'] = $('#activity-select').val();
+		}
+		trailParams['location'] = currentLoc;  // currentLoc is an object.lat/lng
+		clearHikeForm() 
+		trailCall(trailParams);
+	});
+
+
+
+	$('#trail-search-btn').click(function(event) {
+		event.preventDefault();
+
+		var trailParams = [];
+		if($('#limit-select').val() !== "") {
+			trailParams['limit'] = $('#limit-select').val(); 	
+		}
+		if($('#activity-select').val() !== "") {
+			trailParams['activity'] = $('#activity-select').val();
+		}
+		if($('#citySelect').val() !== "") {
+			trailParams['city'] = $('#citySelect').val(); 	
+		}
+		if($('#stateSelect').val() !== "") {
+			trailParams['state'] = $('#stateSelect').val(); 	
+		}
+		if(!trailParams['state'] && !trailParams['city']) {
+			trailParams['location'] = currentLoc;
+		}
+		clearHikeForm() ;
+		trailCall(trailParams);
 
 	});
+
+	
+
+
+
+
+
 
 
 
@@ -85,10 +132,10 @@ $(function(){
 	// set tabs functionality
 	setTabs();
 
-	 var current_loc;
+	var current_loc;
 	 // getLocation();
 	 
-	 getZipFromHash();
+	getZipFromHash();
 	 // console.log(zip);
 	 //console.log(current_loc);
 	 
@@ -100,10 +147,13 @@ $(function(){
 // =========== Function Definitions ============= //
 
 // constructor for markerObjects
-	function markerObject(lat, lng, name) {
+	function markerObject(lat, lng, name, addr, local, region) {
 		this.lat = lat;
 		this.lng = lng;
 		this.name = name;
+		this.addr = addr;
+		this.local = local;
+		this.region = region;
 	}
 
 /**
@@ -120,16 +170,9 @@ $(function(){
 		else hash = 0;
 		$('#funTabs').tabs({
 			active: hash,
-			hide: { effect: "blind", duration: 500 },
-			show: { effect: "blind", duration: 500 },
+			hide: { effect: "fade", duration: 500 },
+			show: { effect: "fade", duration: 500 },
 			activate: function(event, ui) {
-				// console.log('tabload')
-					
-
-				// QQQ  - Here, I have a question. Page is needing a refresh before the location can be read. The 
-				// initMap is firing, but the map does not fully load. 	
-
-				//location.reload()
 			}
 			//,
 			// heightStyle: "fill"
@@ -178,6 +221,23 @@ $(function(){
 			mapInit(coords, 0);
 		});
 	}
+	function loc_from_zip2(zip){
+		var geocoder = new google.maps.Geocoder();
+		
+		geocoder.geocode({address: zip}, function (result) {
+			// console.log(result[0].geometry.location.lat())
+			placeName = result[0].formatted_address;
+			// console.log(result[0].geometry.location.lat)
+			
+			var coords = {
+				lat: result[0].geometry.location.lat(),
+				lng: result[0].geometry.location.lng()
+			};
+			myGeoLocation = coords;
+			console.log(coords)
+			init_map2(coords);
+		});
+	}
 
 
 
@@ -217,7 +277,8 @@ $(function(){
 		var mapOptions = {
 			center: myLtLn,
 			zoom: currentZoom,
-			mapTypeId: 'roadmap'
+			mapTypeId: 'roadmap',
+			scrollwheel: false
 		};
 		//console.log(mapOptions.center);
 		var map = new google.maps.Map($('#tab-map'+mapId).get(0), mapOptions);
@@ -227,14 +288,20 @@ $(function(){
 		
 		// Question Here, Why does when my map reloads, with tab selection, the center is offset
 		// And, it requires, a jog, to get the map to load. 
-
+		google.maps.event.addListener(map, 'idle', function() {
+			currentLoc = {lat: map.getCenter().lat(), lng: map.getCenter().lng()}
+		    currentZoom = map.getZoom();
+		})
 		google.maps.event.addListener(map, "center_changed", function() {
 		        // console.log(map.getCenter().lat())
 		        // console.log(map.getCenter().lng())
 		        currentLoc = {lat: map.getCenter().lat(), lng: map.getCenter().lng()}
 		        currentZoom = map.getZoom();
-		       console.log(currentLoc);
+		       // console.log(currentLoc);
 		      });
+		google.maps.event.addListener(map, 'click', function(event) {
+			console.log(event.latLng.lat()+" and "+event.latLng.lng());
+		});
 	}
 
 // -------- Brewery Tab Function ------  //
@@ -243,9 +310,17 @@ function search_city() {
 	var city = $('#city-name').val();
 	if(check_city(city)) {
 		if(currentLoc){
-		show_errors();
-		
-		find_brewery("city", city);
+			show_errors();
+			var geocode = new google.maps.Geocoder()
+			geocode.geocode( {address: city}, function(result) {
+				var coords = [
+					result[0].geometry.location.lat(),
+					result[0].geometry.location.lng()
+				];
+				// myGeoLocation = coords;
+				console.log(coords)
+				find_brewery("auto", coords);
+			})
 		}
 	}
 	else { 
@@ -291,7 +366,19 @@ function search_zip() {
 		errorMessage = "<p class='errText'>Please use '#####' or '#####-####'</p>";
 		show_errors();
 	}
-	else find_brewery("zip", zip);
+	else {
+		var geocode = new google.maps.Geocoder();
+
+		geocode.geocode( {address: zip}, function(result) {
+			var coords = [
+				result[0].geometry.location.lat(),
+				result[0].geometry.location.lng()
+			];
+			// myGeoLocation = coords;
+			console.log(coords)
+			find_brewery("auto", coords);
+		})
+	}
 	
 }
 
@@ -308,19 +395,20 @@ function find_brewery(search_param, data) {
 	// alert(search_param)
 	$.get("lookup.php", { info: data, method: search_param, dataType: "json"})
 		.done(function(response){
-			//console.log(JSON.parse(response));
+			// console.log(data);
+			console.log(JSON.parse(response));
+
 			var data_arr = JSON.parse(response).data;
+			// console.log(data_arr[0].longitude)
 			// console.log(data_arr);
 			if (data_arr) {
 				clear_fields();
 				$('#output').empty();
 				var outputString = '';
 				//console.log(response);
-				// var table = document.createElement('table');
 				
 				// Get parent element to write into
 				var beerOut = document.getElementById('output');
-
 				
 				// Clear the markerData so it doesn't accumulate.   
 				markerData = [];
@@ -357,13 +445,8 @@ function find_brewery(search_param, data) {
 					else { description = "Sorry, no description is available"
 					}
 					
-					
-					
-					
-					
 					var bWebsite = document.createElement('p');
 					
-
 					var bDescription = document.createElement('p');
 					var bIcon = document.createElement('div');
 					var bImg = document.createElement('img');
@@ -371,20 +454,13 @@ function find_brewery(search_param, data) {
 					var header = document.createElement('div');
 					header.setAttribute('class', 'brewHeader');
 					
-					
-					
-
 					bAnchor.href = website;
-
 					bAnchor.innerHTML = websiteTrimmed;
 					
-			
-					
-					
-					var bName = "<div class='pull-left lead'><a class='brewName' href='"+website+"'>"+name+"\
+					var bName = "<div class='pull-left lead'><a id='brewName' class='brewName' href='"+website+"'>"+name+"\
 					</a></div>\
 					<div class='pull-right'><img src='"+icon+"'></div><br>"
-					bDescription.setAttribute('class', 'text-info');
+					bDescription.setAttribute('class', 'text-default');
 					bDescription.innerHTML = description;
 					
 					header.setAttribute('class', 'brew-head')
@@ -393,12 +469,17 @@ function find_brewery(search_param, data) {
 					
 					beerOut.appendChild(bDescription);
 					
-					//console.log(tr)
-					var markerObj = new markerObject(lat, lng, name);
+					var addr = data_arr[i].streetAddress;
+					var local = data_arr[i].locality;
+					var reg = data_arr[i].region;
+
+					// Create new marker obj, and push it to array of markerData[]
+					var markerObj = new markerObject(lat, lng, name, addr, local, reg);
 					markerData.push(markerObj);
 					// console.log(markerObj)
 				}
-				
+				console.log(data);
+				// Note, this is passing an array here.
 				init_map2(data);
 			}	
 			else {
@@ -409,30 +490,39 @@ function find_brewery(search_param, data) {
 		});
 }
 function init_map2(loc) {
-
-	var map_properties = {center: loc, zoom: 12 };
+	// this function takes an array as the location argument
+	// console.log(loc[0]+" : "+loc[1])
+	var myLatLng = new google.maps.LatLng(loc[0], loc[1])
+	var map_properties = {
+		center: myLatLng ,
+		zoom: 10,
+		scrollwheel: false
+		 };
 	map = new google.maps.Map($('#tab-map1').get(0), map_properties);
 	// Removed property scrollwheel: false
-	
 	var center;
     google.maps.event.addDomListener(map, 'idle', function() {
+		
 		center = map.getCenter();
+		// console.log(center.lat())
 	});
 	google.maps.event.addDomListener(window, 'resize', function() {
 		map.setCenter(center);
 	});
-	
 	// create new info window
 	 infoWindow = new google.maps.InfoWindow();
-
 	// Need to populate array before disp_markers. 
+	         
 	display_markers();
-	
 	// Event that closes the InfoWindow with a click on the map
    	google.maps.event.addListener(map, 'click', function() {
        infoWindow.close();
     });
+    google.maps.event.addListener(map, 'click', function(event) {
+    	console.log(event.latLng.lat()+" and "+event.latLng.lng());
+	});
 }
+
 // This function will iterate over markersData array
 // creating markers with createMarker function
 function display_markers() {
@@ -446,82 +536,144 @@ function display_markers() {
 		var name = markerData[i].name;
 		var lat = markerData[i].lat;
 		var lng = markerData[i].lng;
-		console.log(lat)
-		console.log(lng)
+		var addr = markerData[i].addr;
+		var local = markerData[i].local;
+		var reg = markerData[i].region;
+		
+		console.log(addr)
+		console.log(local)
+		console.log(reg)
 		latlng = new google.maps.LatLng(lat, lng);
 		// console.log(latlng);
 		
-
-////  Problem somewhere in here with my set center method ////
-
-
-
-		create_marker(latlng, name);
+		create_marker(latlng, name, addr, local, reg);
 
 		// Marker’s Lat. and Lng. values are added to bounds variable
       	bounds.extend(latlng); 
-		
 	}
-	// alert(latlng);
-	// Most excellent, this worked to center map on a group of markers. 
-	map.setCenter(latlng);
-	// Bounds variable is used to set the map bounds
 }
+
+
 // This function creates each marker and sets their Info Window content
-function create_marker(latlng, name) {
+function create_marker(latlng, name, addr, local, reg) {
 	var marker = new google.maps.Marker({
 		map: map,
 		position: latlng,
 		title: name
 	});
 	// This event expects a click on a marker
-	
-	var winContent = "";
 	google.maps.event.addListener(marker, 'click', function() {
-		winContent = "<div><p>"+name+"</p></div>";
-		// alert(name)
-		infoWindow.setContent(winContent);
-
-     	// open infowindow in the current map and at the current marker location
+		if(infoWindow){
+			console.log('im true')
+     		infoWindow.close();
+     	}
+		infoWindow = new google.maps.InfoWindow({
+   			content: "<div style='color: #333'><h4>"+name+"</h4>\
+   			<p>"+addr+"</p><p>"+local+", "+reg+"</p></div>"
+ 		});
     	infoWindow.open(map, marker);
-		
 	});
-	google.maps.event.addListener(marker, 'hover', function() {
-		winContent = "<div><p>"+name+"</p></div>";
-		infoWindow.setContent(winContent);
-		infoWindow.open(map, marker);
-		//alert(name);
+	google.maps.event.addListener(marker, 'mouseover', function() {
+		if(infoWindow){
+			console.log('im true')
+     		infoWindow.close();
+     	}
+		infoWindow = new google.maps.InfoWindow({
+   			content: "<div style='color: #333'><h4>"+name+"</h4>\
+   			<p>"+addr+"</p><p>"+local+", "+reg+"</p></div>"
+ 		});
+    	infoWindow.open(map, marker);
 	});
-		
-	winContent = "<div><p>"+name+"</p></div>";
+	winContent = "<div style='color: #333'><h4>"+name+"</h4>\
+   			<p>"+addr+"</p><p>"+local+", "+reg+"</p></div>";
 	infoWindow.setContent(winContent);
 	infoWindow.open(map, marker);
 
 }
 
 
+// =======  Begin functions for trails API Tab   =========  //
+
+
+/**
+ * Clears form fields in the hike/camp search form 
+ */
+function clearHikeForm() {
+	$('#limit-select').add($('#activity-select'),$('#limit-select')).val("");
+	$('#citySelect').add($('#stateSelect')).val("");
+}
+
+
+/**
+ * Base call to trails API
+ * @params [array] arr - holds assoc array of values
+ */
+function trailCall(arr){
+	console.log(arr)
+	// possible keys in arr
+	// limit, activity, city, state, location //
+	
+	var limit = "",
+		activity = "",
+		city = "",
+		state = "",
+		lat = "",
+		lng = "";
+
+	for (var key in arr){
+		if (key == "limit") {
+			if (arr[key] === 'max'){
+				limit = "";
+			}
+			else limit = "&limit="+arr[key];
+		}
+		if (key == "activity") activity = "&q[activities_activity_type_name_eq]="+arr[key];
+		if (key == "city") city = "&q[city_cont]="+arr[key];
+		if (key == "state") state = "$q[state_cont]="+arr[key];
+		if (key == "location") lat = "&lat="+arr[key].lat;
+		if (key == "location") lng = "&lon="+arr[key].lng;
+	}
+
+
+
+	var trailKey = "hWjd4vtN1NmshKnLqQfckPOgxwmbp1FgK0DjsnWPe0wQDAbddo";
+	var trailUrl = "https://trailapi-trailapi.p.mashape.com/?"
+	var rad = 20;
+	var radius = "&radius="+rad;
+	trailUrl += limit+activity+city+state+lat+lng;
+	console.log(trailUrl)
+
+		
+	success = function(data){
+		console.log(data);
+		// console.log(data.places[0].activities[0].activity_type_name)
+		// console.log(data.places[0].activities[0].name)
+		// console.log(data.places[0].activities[0].description)
+		// console.log(data.places[0].activities[0].length+' miles')
+		// console.log('rating = '+data.places[0].activities[0].rating)
+		// console.log(data.places[0].activities[0].url)
+	}
+
+	$.ajax({
+	    url: trailUrl, // The URL to the API endpoint.
+	    type: 'GET', // The HTTP Method (get,post, etc)
+	    data: {}, // Additional parameters here
+	    dataType: 'json',
+	    success: success,
+	    error: function(err) { alert(err); },
+	    beforeSend: function(xhr) {
+	    xhr.setRequestHeader("X-Mashape-Authorization", trailKey); // Enter here your Mashape key
+	    }
+
+	    
+	});
+
+}
+
 
 
 
 	
 // =========== End Function Definitions ========== //
-
-	
-
-
-
-
-	
-
-	
-	
-
-
-
-
-
-
-
-
 
 });

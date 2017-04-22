@@ -53,17 +53,6 @@ body {
 #body {
 	// background-color: #ccc;
 }
-// .index-slider { 
-//     background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-//     img {
-// 	    margin: auto;
-// 	}
-// }
-// .bx-wrapper {
-// 	background-color: #333;
-// 	border: none;
-// 	background: linear-gradient(to right, black, #777, black, #777, black);
-// }
 .index-nav{
     padding: 1em;
   
@@ -76,6 +65,11 @@ body {
 } 
 #nav-brand {
 	font-size: 1.7em;
+}
+// Styles active state of top navbar buttons
+.navbar-default .navbar-nav>.active>a {
+	background-color: rgba(200, 200, 200, .5);
+	border-radius: 5px;
 }
 .index-jmb {
 	background-image: url("../img/nav-bkg-1920.jpg");

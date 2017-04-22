@@ -28,11 +28,14 @@
 	<!-- Bootstrap JS CDN -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/FF.tab.styles.css">
+  <script src="js/city-name.js"></script>
 	<script type="text/javascript" src="js/FF.app2.js"></script>
 	<link rel="stylesheet" type="text/css"
           href="https://fonts.googleapis.com/css?family=Fjalla One">
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJl1s_ElOQABn5g9toMSrBQoKtBPv6NFs"></script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJl1s_ElOQABn5g9toMSrBQoKtBPv6NFs"></script>
+   
+    
 </head>
 <body>
 	<div id="container">
@@ -91,8 +94,77 @@
 				    <section>
 				    	<div class="row">
 				    		<div class="col-sm-6">
-				    			<div class="col-sm-12 tab-form">form here</div>
-				    			<div class="col-sm-12 tab-info">Return info here</div>
+				    			<!-- Begin hike/bike/camp form -->
+				    			<div class="col-sm-12 tab-form" id="hike-form">
+				    				<h4 class="section-header" data-toggle="tooltip" data-placement="bottom" title="Make selections from the form below to search for hiking, biking, and camping opportunities at the location you select. Leave location info blank to use your current location.">Find hiking, biking, and camping opportunities</h4>
+									<form class="form-default" action="" id="hike-form">
+										
+											
+												
+										<div class="form-group hike-form-group" >
+											<div style="display: inline-block;">
+												<label for="activity-select">Activity:</label>
+												<select  class="text-info" name="activity" id="activity-select">
+													<option value="">Choose One</option>
+													<option value="hiking">Hiking</option>
+													<option value="biking">Biking</option>
+													<option value="camping">Camping</option>
+												</select>
+											</div>
+
+
+											<div style="display: inline-block;">
+
+												<label class="form-label" for="limit">Limit Results:</label>
+
+												<select  class="text-info" name="limit" id="limit-select" style="">
+													<option value="">Choose One</option>
+													<option value="1">1</option>
+													<option value="5">5</option>
+													<option value="10">10</option>
+													<option value="20">20</option>
+													<option value="max">Max</option>
+												</select>
+											</div>
+										</div>
+									
+										<div class="form-group hike-form-group">
+											<div style="display: inline-block;">
+												<label for="city">City:</label>
+												<input type="text" name="city" id="citySelect">	
+											</div>
+											<div style="display: inline-block;">
+												<label for="state">State:</label>
+												<input type="text" name="state" id="stateSelect">	
+											</div>					
+										</div>
+
+										<div class="form-group hike-form-group">
+											<div class="text-center">
+												<button class="btn btn-success" id="trail-search-btn">Go!</button>	
+												
+												<button class="btn btn-success"  id="trail-search-map" data-toggle="tooltip" data-placement="bottom" title="Center the Map on a location to search">Map Center</button>
+											</div>
+											
+										</div>
+											
+										
+										
+
+
+				
+
+
+
+										
+									</form>
+
+									
+				    			</div>
+				    			<div class="col-sm-12 tab-info" id="hike-results">
+				    				<h4 class="section-header">Search Results</h4>
+
+				    			</div>
 				    		</div>
 				    		<div class="col-sm-6">
 				    			<div class="col-sm-12 tab-map" id="tab-map0">Map here</div>
@@ -111,7 +183,7 @@
 				    			
 										<!-- Brewery Form -->
 
-										<h4 class='text-center'>Search for Breweries</h4>
+										<h4 class='section-header'>Search for Breweries</h4>
 
 										<form class="form-inline beer-form">
 										  <div class="form-group">
@@ -138,15 +210,16 @@
 				    			</div>
 				    			<div class="col-sm-12 tab-info" id="beer-results-panel">
 										<div class="row">
-										<h4 class='text-center'>Breweries Info</h4>
+										
 											<div id="output" class="col-sm-12">
+												<h4 class='section-header'>Breweries Info</h4>
 												
 											</div>
 										</div>
 				    			</div>
 				    		</div>
 				    		<div class="col-sm-6">
-				    			<div class="col-sm-12 tab-map" id="tab-map1">Map here</div>
+				    			<div class="col-sm-12 tab-map" id="tab-map1"></div>
 				    		</div>
 								<div class="col-sm-12" style="height: 5em;border: 1px solid red;">bottom div</div>
 				    	</div>

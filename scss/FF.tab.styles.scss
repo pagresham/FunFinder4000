@@ -47,17 +47,6 @@ body {
 #body {
 	// background-color: #ccc;
 }
-// .index-slider { 
-//     background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-//     img {
-// 	    margin: auto;
-// 	}
-// }
-// .bx-wrapper {
-// 	background-color: #333;
-// 	border: none;
-// 	background: linear-gradient(to right, black, #777, black, #777, black);
-// }
 .index-nav{
     padding: 1em;
   
@@ -70,6 +59,11 @@ body {
 } 
 #nav-brand {
 	font-size: 1.7em;
+}
+// Styles active state of top navbar buttons
+.navbar-default .navbar-nav>.active>a {
+	background-color: rgba(200, 200, 200, .5);
+	border-radius: 5px;
 }
 .index-jmb {
 	background-image: url("../img/nav-bkg-1920.jpg");
@@ -144,6 +138,13 @@ body {
 	border-bottom: 1px solid #ccc;
 	padding-bottom: 0em;
 	color: white;
+}
+
+.section-header {
+	border-bottom: 1px solid #ccc;
+	color: #333;
+	padding-bottom: .25em;
+	text-align: center;
 }
 
 // =========== End Helper Classes =========// 
@@ -283,18 +284,27 @@ body {
 }
 .tab-form {
 	min-height: 18em;
-	border: 2px solid red;
-	padding: 0em;
+	// border: 2px solid red;
+	padding: .5em;
+	background-color: rgba(200, 200, 200, .3);
+	border-radius: .3em;
+	box-shadow: 0px 0px 20px #111 inset;
 }
 .tab-info {
 	min-height: 18em;
-	border: 2px solid red;
-	padding: 0em;
+	// border: 2px solid red;
+	padding: .5em;
+	background-color: rgba(200, 200, 200, .3);
+	border-radius: .2em;
+	box-shadow: 0px 0px 20px #111 inset;
 }
 .tab-map {
 	min-height: 36em;
-	border: 2px solid red;
-	padding: 0em;
+	// border: 2px solid red;
+	padding: .5em;
+	background-color: rgba(200, 200, 200, .3);
+	border-radius: .3em;
+	box-shadow: 0px 0px 20px #111 inset;
 }
 
 // =========  Beging Beer Search Tab Styling =========== //
@@ -310,8 +320,10 @@ body {
 	min-height: 22em;
 }
 #beer-form {
-	min-height: 14em;
+	min-height: 13em;
+	margin-bottom: 1em;
 }
+
 #output {
 	min-height: 18em;
 	// overflow: scroll;
@@ -319,9 +331,63 @@ body {
 .ui-widget-content .brewName {
 	color: white;
 }
+// .ui-widget-content .brewName:hover {
+	
+// }
+#brewName:hover {
+	color: lightblue;
+}
 .brew-head {
 	margin: 4em 0em;
+
+}
+
+//  ======  Begin styling for Hiking/Bike Tab ======  //
+
+.hike-form-group {
+
+	input {
+		color: #333;
+		background-color: rgba(200, 200 ,200 ,.4);
+		padding: .2em;
+		border-radius: 5px;
+		margin: .25em;
+	}
+}
+
+#hike-form {
+	min-height: 9em;
 	
+	select {
+		max-width: 10em; 
+		height: 2em;
+	}
+}
+#hike-results {
+	
+}
+#trail-search-btn {
+
+}
+.ui-tabs-nav {
+	background-color: #333;
+	border: none;
+}
+.ui-tabs .ui-tabs-nav li {
+	background-color: #ccc;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+	background-color: rgba(150, 190, 250, 1);
+	color: #333;
+}
+.ui-state-default a, .ui-state-default a:link {
+	color: #333;
+}
+.ui-autocomplete {
+	background-color: #ccc;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	color: #333;
 }
 
 
