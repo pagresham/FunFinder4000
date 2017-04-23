@@ -283,4 +283,10 @@ body {
   border-bottom-left-radius: 6px;
   color: #333; }
 
+.fuckYeah h4, .fuckYeah p {
+  color: #333; }
+
+.trailText {
+  border-bottom: 1px solid #ccc; }
+
 /*# sourceMappingURL=FF.tab.styles.css.map */

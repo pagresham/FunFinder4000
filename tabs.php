@@ -93,7 +93,7 @@
 				  <div id="fragment-1" class="tabs" >
 				    <section>
 				    	<div class="row">
-				    		<div class="col-sm-6">
+				    		<div class="col-sm-6" >
 				    			<!-- Begin hike/bike/camp form -->
 				    			<div class="col-sm-12 tab-form" id="hike-form">
 				    				<h4 class="section-header" data-toggle="tooltip" data-placement="bottom" title="Make selections from the form below to search for hiking, biking, and camping opportunities at the location you select. Leave location info blank to use your current location.">Find hiking, biking, and camping opportunities</h4>
@@ -107,8 +107,9 @@
 												<select  class="text-info" name="activity" id="activity-select">
 													<option value="">Choose One</option>
 													<option value="hiking">Hiking</option>
-													<option value="biking">Biking</option>
+													<option value="mountain biking">Mountain Biking</option>
 													<option value="camping">Camping</option>
+													<option value="snow sports">Snow Sports</option>
 												</select>
 											</div>
 
@@ -130,11 +131,11 @@
 									
 										<div class="form-group hike-form-group">
 											<div style="display: inline-block;">
-												<label for="city">City:</label>
+												<label data-toggle="tooltip" title="If your results are too widespred, there may be more than one town with the same name. Try adding a state." for="city">City:</label>
 												<input type="text" name="city" id="citySelect">	
 											</div>
 											<div style="display: inline-block;">
-												<label for="state">State:</label>
+												<label  for="state">State:</label>
 												<input type="text" name="state" id="stateSelect">	
 											</div>					
 										</div>
@@ -178,7 +179,7 @@
 				  <div id="fragment-2" class="tabs" >
 				   <section>
 				    	<div class="row">
-				    		<div class="col-sm-6">
+				    		<div class="col-sm-6" style="overflow: scroll">
 				    			<div class="col-sm-12 tab-form" id="beer-form">
 				    			
 										<!-- Brewery Form -->

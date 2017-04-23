@@ -4,7 +4,16 @@ $(function(){
 	// console.log(window.location)
 	var gal;
 	var indexMap;
-	var map;
+
+
+
+
+	// var map;
+	
+
+
+
+
 	var zip = null;
 	var coords = [];
 	var placename;
@@ -15,6 +24,7 @@ $(function(){
 	var myGeoLocation;
 	var markerData = [];
 	var infoWindow;
+	
 	// ========= Listeners at page load ======================== //
 
 	// Listener for GO button at zip search field
@@ -45,7 +55,7 @@ $(function(){
 			currentTab = id;
 			// console.log(currentTab);
 			// console.log(currentLoc.lat);
-			console.log('pressed');
+			// console.log('pressed');
 			setTimeout(function(){
 				// You wait just a second!!! //
 				// This helped with my map not loading on tb selection //
@@ -87,6 +97,7 @@ $(function(){
 		trailParams['location'] = currentLoc;  // currentLoc is an object.lat/lng
 		clearHikeForm() 
 		trailCall(trailParams);
+		
 	});
 
 
@@ -293,12 +304,10 @@ $(function(){
 		    currentZoom = map.getZoom();
 		})
 		google.maps.event.addListener(map, "center_changed", function() {
-		        // console.log(map.getCenter().lat())
-		        // console.log(map.getCenter().lng())
-		        currentLoc = {lat: map.getCenter().lat(), lng: map.getCenter().lng()}
-		        currentZoom = map.getZoom();
-		       // console.log(currentLoc);
-		      });
+      currentLoc = {lat: map.getCenter().lat(), lng: map.getCenter().lng()}
+      currentZoom = map.getZoom();
+     // console.log(currentLoc);
+    });
 		google.maps.event.addListener(map, 'click', function(event) {
 			console.log(event.latLng.lat()+" and "+event.latLng.lng());
 		});
@@ -540,9 +549,9 @@ function display_markers() {
 		var local = markerData[i].local;
 		var reg = markerData[i].region;
 		
-		console.log(addr)
-		console.log(local)
-		console.log(reg)
+		// console.log(addr)
+		// console.log(local)
+		// console.log(reg)
 		latlng = new google.maps.LatLng(lat, lng);
 		// console.log(latlng);
 		
@@ -556,6 +565,7 @@ function display_markers() {
 
 // This function creates each marker and sets their Info Window content
 function create_marker(latlng, name, addr, local, reg) {
+
 	var marker = new google.maps.Marker({
 		map: map,
 		position: latlng,
@@ -609,50 +619,129 @@ function clearHikeForm() {
  * @params [array] arr - holds assoc array of values
  */
 function trailCall(arr){
-	console.log(arr)
+	// console.log(arr)
 	// possible keys in arr
 	// limit, activity, city, state, location //
-	
 	var limit = "",
 		activity = "",
 		city = "",
 		state = "",
 		lat = "",
-		lng = "";
-
+		lng = "",
+		limitflag = false;
 	for (var key in arr){
 		if (key == "limit") {
 			if (arr[key] === 'max'){
-				limit = "";
+				limit = 25;
+				limitflag = true;
 			}
-			else limit = "&limit="+arr[key];
+			else {
+				limit = "&limit="+arr[key];
+				limitflag = true;
+			}
 		}
+
 		if (key == "activity") activity = "&q[activities_activity_type_name_eq]="+arr[key];
 		if (key == "city") city = "&q[city_cont]="+arr[key];
-		if (key == "state") state = "$q[state_cont]="+arr[key];
+		if (key == "state") state = "&q[state_cont]="+arr[key];
 		if (key == "location") lat = "&lat="+arr[key].lat;
 		if (key == "location") lng = "&lon="+arr[key].lng;
+	}
+	// limits output to 50
+	if(!limitflag) {
+		limit = "&limit=50";
 	}
 
 
 
 	var trailKey = "hWjd4vtN1NmshKnLqQfckPOgxwmbp1FgK0DjsnWPe0wQDAbddo";
 	var trailUrl = "https://trailapi-trailapi.p.mashape.com/?"
-	var rad = 20;
+	var rad = 25;
 	var radius = "&radius="+rad;
-	trailUrl += limit+activity+city+state+lat+lng;
-	console.log(trailUrl)
+	trailUrl += limit+activity+city+state+lat+lng+radius;
+	//console.log(trailUrl)
 
 		
-	success = function(data){
-		console.log(data);
-		// console.log(data.places[0].activities[0].activity_type_name)
-		// console.log(data.places[0].activities[0].name)
-		// console.log(data.places[0].activities[0].description)
-		// console.log(data.places[0].activities[0].length+' miles')
-		// console.log('rating = '+data.places[0].activities[0].rating)
-		// console.log(data.places[0].activities[0].url)
-	}
+	var success = function(data){
+		var markers = [];
+		var ar = data.places;
+		// Create bounds object to center map on when finished processing markers
+		var bounds = new google.maps.LatLngBounds();
+		var locations = [];
+
+		/**
+		 * init map for this particular map call
+		 * @param  {bounds object} loc [description]
+		 */
+		function initMap(loc) {
+			var map = new google.maps.Map($('#tab-map0').get(0),
+			{
+				zoom: 8,
+				center: loc.getCenter()
+			});
+			console.log(locations)
+			setMarkers(map, locations)
+
+			google.maps.event.addListener(map, "center_changed", function() {
+      	currentLoc = {lat: map.getCenter().lat(), lng: map.getCenter().lng()}
+      	currentZoom = map.getZoom();
+     		// console.log(currentLoc);
+    	});
+		}
+
+		
+		// console.log(ar);
+		for (var i in ar) {
+			if (ar[i].lat != 0 && ar[i].lat != null & ar[i].lat != undefined) {
+				//console.log(ar[i].lat+" : "+ar[i].lon)
+				// console.log(ar[i].lat+" "+ ar[i].lon)
+				var latLng = new google.maps.LatLng(ar[i].lat, ar[i].lon)
+
+				// Add each latLng to bounds obj
+				bounds.extend(latLng);
+
+				var activitiesStr = "";
+				var name = ar[i].name;
+				var cityState = ar[i].city+", "+ar[i].state;
+				var Url = ""
+				for (var j in ar[i].activities) {
+					activitiesStr += ar[i].activities[j].activity_type_name+"  ";
+					Url += ar[i].activities[j].url+"<br>";
+				}
+				var location = {name: name, activity: activitiesStr, cityState: cityState, url:Url, latlng: latLng}
+				locations.push(location);
+				var trailsDiv = document.createElement('div');
+				var h4 = document.createElement('h4');
+				h4.innerHTML = name;
+				var p1 = document.createElement('p');
+				p1.innerHTML = activitiesStr;
+				var p2 = document.createElement('p');
+				p2.innerHTML = cityState;
+				var p3 = document.createElement('a');
+				p3.href = Url
+				p3.innerHTML = Url;
+				trailsDiv.appendChild(h4);
+				trailsDiv.appendChild(p1);
+				trailsDiv.appendChild(p2);
+				trailsDiv.appendChild(p3);
+				trailsDiv.setAttribute('class', 'trailText');
+				$('#hike-results').append(trailsDiv);
+
+
+
+
+
+
+
+			} // end IF lat and lon are not null
+		} // for loop
+		
+		if(locations.length > 0){
+			initMap(bounds);
+		}
+		else alert('Sorry, no results were found with these parameters.')
+	}// end success function 
+
 
 	$.ajax({
 	    url: trailUrl, // The URL to the API endpoint.
@@ -663,14 +752,39 @@ function trailCall(arr){
 	    error: function(err) { alert(err); },
 	    beforeSend: function(xhr) {
 	    xhr.setRequestHeader("X-Mashape-Authorization", trailKey); // Enter here your Mashape key
-	    }
-
-	    
-	});
-
+	    } 
+	});	
 }
+// function 
+function setMarkers(map, locations) {
+			console.log("fuck1")
+			var marker, i;
+			for(i=0;i<locations.length;i++) {
+				var name = locations[i].name;
+				var activity = locations[i].activity;
+				var cityState = locations[i].cityState;
+				var Url = locations[i].url;
+				var latlng = locations[i].latlng;
+				// console.log(latlng.lat());
+				console.log('fuck2')
+				latlangSet = new google.maps.LatLng(latlng.lat(), latlng.lng());
+				var marker = new google.maps.Marker({map:map, title:name, position:latlangSet })
+				marker.content = "<div class='fuckYeah' style='color:#333'><h4>"+name+"</h4><p>"+activity+"</p><p>"+cityState+"</p><p>"+Url+"</p>";
+				var infowindow = new google.maps.InfoWindow();
+				
+				// 'this' was the solution after hours of trying to get the markers to work right. 
+				// http://stackoverflow.com/questions/3576488/google-maps-infowindow-only-loading-last-record-on-markers
 
-
+				google.maps.event.addListener(marker, 'click', function () {
+            infowindow.setContent(this.content);
+            infowindow.open(this.getMap(), this);
+        });
+        google.maps.event.addListener(marker, 'mouseover', function () {
+            infowindow.setContent(this.content);
+            infowindow.open(this.getMap(), this);
+        });
+			}
+		}
 
 
 	
