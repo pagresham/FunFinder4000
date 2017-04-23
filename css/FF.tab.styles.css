@@ -289,4 +289,15 @@ body {
 .trailText {
   border-bottom: 1px solid #ccc; }
 
+.footer-images li {
+  display: inline-block;
+  margin: 2em 0.5em 0em 0em; }
+
+#size {
+  color: #333;
+  height: 2em; }
+
+#myCarousel {
+  height: 500px; }
+
 /*# sourceMappingURL=FF.tab.styles.css.map */

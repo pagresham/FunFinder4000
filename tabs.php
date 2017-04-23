@@ -244,8 +244,73 @@
 				    <section>
 				    	<div class="row">
 				    		<div class="col-sm-6">
-				    			<div class="col-sm-12 tab-form">form here</div>
-				    			<div class="col-sm-12 tab-info">Return info here</div>
+				    			<div class="col-sm-12 tab-form text-center">
+				    				
+
+
+										
+<!--  -->
+										<h3>Flickr Fun</h3>
+										<p>Make a selection from the choices below to view photos from Flickr&copy</p>
+										<form class="form-default" action="" id="photo-form">
+				
+											<div class="form-group hike-form-group" >
+												<div class="form-group" style="display: inline-block;">
+														<label for="keyword">Keyword</label>
+														<input type="text" name="keyword" id="keyword" value="" class="" maxlength="20">
+												</div>
+												
+												<div class="text-center">
+														<button id="photo-search" class="btn btn-info">Find Photos!</button>
+												</div>
+											</div>
+									</form>
+
+				    			</div>
+				    			<div class="col-sm-12 tab-info">
+									
+									<!-- Carousel starts -->
+										<div id="myCarousel" class="carousel slide" data-ride="carousel">
+										  <!-- Indicators -->
+										  <!-- <ol class="carousel-indicators">
+										    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+										    <li data-target="#myCarousel" data-slide-to="1"></li>
+										    <li data-target="#myCarousel" data-slide-to="2"></li>
+										    <li data-target="#myCarousel" data-slide-to="3"></li>
+										  </ol> -->
+
+										  <!-- Wrapper for slides -->
+										  <div class="carousel-inner" role="listbox" id="slideShow">
+											<!-- Append images here  -->
+
+
+
+										    <div class="item active">
+										      <img class="flkrSlide" src="https://farm3.staticflickr.com/2811/33218725363_7e9926a7a7.jpg" alt="">
+										    </div>
+
+										  </div>
+
+										  <!-- Left and right controls -->
+										  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+										    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+										    <span class="sr-only">Previous</span>
+										  </a>
+										  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+										    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+										    <span class="sr-only">Next</span>
+										  </a>
+										</div>
+
+
+
+
+
+
+
+
+
+				    			</div>
 				    		</div>
 				    		<div class="col-sm-6">
 				    			<div id="tab-map3" class="col-sm-12 tab-map">Map here</div>
@@ -257,17 +322,7 @@
 				</div>
 			</div>
 		</div>
-			<div id="footer">
-			<footer>
-				<div id="output"></div>
-			</footer>
-		</div>
-	</div>
-
-
-</body>
-</html>
-
-<!-- <?PHP 
-//include "footer.php";
+<?PHP
+include "footer.php";
 ?>
+

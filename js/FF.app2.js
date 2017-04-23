@@ -126,8 +126,14 @@ $(function(){
 
 	});
 
+	//  ========  Photos Tab Listeners ==========  //
 	
-
+	$('#photo-search').click(function(event) {
+		event.preventDefault();
+		console.log(currentLoc)
+		flickrCall(currentLoc)
+	})
+	
 
 
 
@@ -733,6 +739,7 @@ function trailCall(arr){
 
 
 
+
 			} // end IF lat and lon are not null
 		} // for loop
 		
@@ -785,6 +792,107 @@ function setMarkers(map, locations) {
         });
 			}
 		}
+
+
+// ======  Code for Photos Tab =================== //
+
+function flickrCall(loc) {
+	var keyword = "&tags=";
+	if ($('#keyword').val() !== "") {
+			keyword += $('#keyword').val();
+	}
+	else { keyword = ""; }
+	var imgSrcs = [];
+	// var size = $('#size').val(),
+			lat = loc.lat,
+			lon = loc.lng,
+			flkrKey = "84581076bd0125f924d6fc410596cf3a",
+			baseUrl = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key="+flkrKey+"&lat="+lat+"&lon=+"+lon+keyword+"&radius=10&per_page=20&page=1&format=json&nojsoncallback=1";
+	console.log(baseUrl)
+
+	$.getJSON(baseUrl, function(data){
+		// console.log(data);
+		if (data.photos.photo.length > 0) {
+			$.each(data.photos.photo, function (index, item) {
+				// console.log(item);
+				var sizeUrl = "https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key="+flkrKey+"&photo_id="+item.id+"&format=json&nojsoncallback=1";
+				$.getJSON(sizeUrl, function(data) {
+					// console.log(data.sizes.size)
+					$.each(data.sizes.size, function(i, item) {
+						// console.log(item);
+						// Hardcoded a value in here.
+						if(item.height ==  500) {
+							// console.log(item);
+							imgSrcs.push(item.source);
+							// console.log(imgUrls.length)
+						}
+					});
+				})
+			})
+		}
+		var slideShow = document.getElementById('slideShow');
+		
+		var e = $('#slideShow');
+		// console.log(e);
+		e.css('background-color', 'red')
+		$(".carousel").carousel({interval: 1000, pause: "hover"});
+		setTimeout(function(){
+
+			// console.log(imgSrcs.length)
+
+			for(var i in imgSrcs){
+				console.log(i)
+				var div = document.createElement('div');
+				var img = document.createElement('img');
+				img.src = imgSrcs[i];
+				img.setAttribute('alt', 'Fun Flickr Photo')
+				img.setAttribute('class', 'flkrSlide');
+				div.setAttribute('class', 'item');
+				if(i == 0) {
+					img.setAttribute('class', 'active');
+				}
+				div.appendChild(img);
+				slideShow.appendChild(div);
+
+				// console.log(img);
+			}
+
+			// for(var j in e) {
+			// 		if(j != 0){
+			// 			e[j].remove();	
+			// 		}
+			// 		// console.log(e[j]);
+			// 	}
+		},1000)
+		
+	})
+	// if(imgUrls.length < 1) {
+	// 	alert('Sorry, no images were found for this location and this keyword.');
+	// }
+	// console.log(imgUrls.length)
+
+
+}
+
+ 
+function flickrLocationCall(lat, lon) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	

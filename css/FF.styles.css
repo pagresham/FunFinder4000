@@ -223,4 +223,8 @@ body {
 .tab-map {
   min-height: 20em; }
 
+.footer-images li {
+  display: inline-block;
+  margin: 2em 0.5em 0em 0em; }
+
 /*# sourceMappingURL=FF.styles.css.map */

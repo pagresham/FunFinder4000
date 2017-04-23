@@ -397,10 +397,23 @@ body {
 }
 .trailText {
 	border-bottom: 1px solid #ccc;
-	
-
 }
+.footer-images {
+	li {
+		display: inline-block;
+		margin: 2em .5em 0em 0em  ;
+	}
+	
+}
+//  ========  Start Photos Tab Styles ========= //
 
+#size {
+	color: #333;
+	height: 2em;
+}
+#myCarousel {
+	height: 500px;
+}
 
 
 

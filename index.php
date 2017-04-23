@@ -92,6 +92,7 @@
 									<a href="tabs.php#0" class=" text-info"><span class="glyphicon glyphicon-hand-right"></span>  Camping - Locate new and interesting campgrounds.</a>
 									<a href="tabs.php#2" class=" text-success"><span class="glyphicon glyphicon-hand-right"></span>  Snow Sports - Find skiing and snowboarding destionations</a>
 									<a href="tabs.php#1" class=" text-info"><span class="glyphicon glyphicon-hand-right"></span>  Breweries - Explore local brewery offirings.</a>
+									<a href="tabs.php#3" class=" text-success"><span class="glyphicon glyphicon-hand-right"></span>  Photos - Explore Fun Photos from Flickr.</a>
 								</div>
 								
 
@@ -126,23 +127,15 @@
 						  </div>
 					</section>
 
-					<aside class="map-aside" style="display: block">
+					<aside class="map-aside col-sm-5" >
 						<div id="index-map" style="margin: 2em;"></div>
 					</aside>
 				</div>
 				<div class="clearfix"></div>
 		</div>
-			<div id="footer">
-			<footer>
-
-			</footer>
-		</div>
-	</div>
-	</div>
-</body>
-</html>
-<!-- <?PHP
-//include "footer.php";
-?> -->
+			
+<?PHP
+include "footer.php";
+?>
 
 
