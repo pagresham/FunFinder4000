@@ -884,6 +884,7 @@ function flickrCall(loc) {
 			// console.log(imageIds)
 			// console.log(img)
 			viewer.append(img);	
+			
 		}
 
 		if(imgSrcs.length < 1) {
@@ -893,6 +894,7 @@ function flickrCall(loc) {
 			$('#'+imageIds[0]).show();
 			curImg = 0;
 		}
+
 		mapInitPhoto()
 	},1000)
 	
@@ -908,12 +910,15 @@ function flickrLocationCall(lat, lon) {
 }
 
 function mapInitPhoto() {
+
 		// console.log(latLng.lat)
 		// console.log(latLng.lng)
-		myLtLn = new google.maps.LatLng(currentLoc);
-		
+		// myLtLn = new google.maps.LatLng(currentLoc);
+		var location = new google.maps.LatLng(currentLoc.lat, currentLoc.lng);
+		// console.log(currentLoc);
 		var mapOptions = {
-			center: myLtLn,
+			center: location,
+			// center: 
 			zoom: currentZoom,
 			mapTypeId: 'roadmap',
 			scrollwheel: false
@@ -925,27 +930,43 @@ function mapInitPhoto() {
 			currentLoc = {lat: photoMap.getCenter().lat(), lng: photoMap.getCenter().lng()}
 		    currentZoom = photoMap.getZoom();
 		})
+		
+		var geocoder = new google.maps.Geocoder();
+		// console.log(location);
+		var city;
 
-		var marker = new google.maps.Marker({
-			postion: myLtLn,
-			map: photoMap,
-			title: 'this is the spot'
-		})
+		// geocoder.geocode({"location":location}, function(results)
+		// 	city = results[0].formatted_address;
+		// });
+
+
+		// function getCity(city, location){
+			
+		// }
+		geocoder.geocode({"location":location}, function(results, status){
+			if(status == 'OK'){
+				if(results[0]){
+					console.log(results[0].formatted_address)	
+					var marker = new google.maps.Marker({
+						// postion: myLtLn,
+						position: location,
+						map: photoMap,
+						title: 'this is the spot'
+					})
+					var infoWindow = new google.maps.InfoWindow();	
+					infoWindow.setContent("<p style='color: #333;'>Photos found near:<br>"+results[1].formatted_address+"</p>");
+              		infoWindow.open(photoMap, marker);
+				}
+			}
+		})	
+
+		
+
+
+		
+
 
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	
