@@ -874,7 +874,8 @@ function flickrCall(loc) {
 			img.src = imgSrcs[i];
 			img.setAttribute('alt', 'Fun Flickr Photo')
 			img.setAttribute('class', 'imgDefault');
-			// img.style.maxWidth = '100%';
+			img.style.maxWidth = '100%';
+			// img.style.height = 'auto';
 			img.style.maxHeight = '32em';
 			// img.setAttribute('class', 'img-responsive')
 			var imageId = 'img'+i;
