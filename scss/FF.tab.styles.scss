@@ -411,11 +411,45 @@ body {
 	color: #333;
 	height: 2em;
 }
-#myCarousel {
-	height: 500px;
+.imageViewer {
+	height: 10em;
+	width: 10em;
+	width: 100%;
+	border: 1px solid green;
+}
+.prev, .next {
+	dispaly: inline;
+}
+.imageBtn {
+	margin: .5em;
+}
+#tab-map3 {
+	height: 18em;
+
+	// border: 2px solid red;
+	padding: .5em;
+	background-color: rgba(200, 200, 200, .3);
+	border-radius: .3em;
+	box-shadow: 0px 0px 20px #111 inset;
+}
+#photo-info {
+	height: 36em;
+}
+#imageViewer { 
+	min-height: 32em;
+	overflow: hidden;
+}
+.imgDefault {
+	display: none;
 }
 
 
+
+// ========= Bottom Div ========= //
+.bottom-div {
+	height: 1em;
+	border: none;
+}
 
 
 

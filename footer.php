@@ -15,6 +15,9 @@
 						<li>
 							<a href="https://developers.google.com/maps/documentation/javascript/"><img data-toggle="tooltip" title="Google Maps API" src="img/googleMapsJS-75.png" alt="Google Maps API"></a>
 						</li>
+						<li>
+							<a href="https://www.flickr.com/services/api/"><img data-toggle="tooltip" title="Flickr&copy API" src="img/flickr-75.png" alt="Flickr API image"></a>
+						</li>
 					</ul>
 				</div>
 			</footer>

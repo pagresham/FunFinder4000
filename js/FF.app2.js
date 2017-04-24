@@ -4,16 +4,6 @@ $(function(){
 	// console.log(window.location)
 	var gal;
 	var indexMap;
-
-
-
-
-	// var map;
-	
-
-
-
-
 	var zip = null;
 	var coords = [];
 	var placename;
@@ -130,7 +120,7 @@ $(function(){
 	
 	$('#photo-search').click(function(event) {
 		event.preventDefault();
-		console.log(currentLoc)
+		// console.log(currentLoc)
 		flickrCall(currentLoc)
 	})
 	
@@ -206,8 +196,8 @@ $(function(){
 			// console.log("the hash is: "+hash);
 			var patt = new RegExp("^[0-9]{5}-?([0-9]{4})?");
 			if(patt.test(hash)) {
-				console.log('true')
-				 console.log("the zip hash is: "+hash);
+				// console.log('true')
+				 // console.log("the zip hash is: "+hash);
 				 zip = hash;
 				 loc_from_zip(zip);
 				 // init map here
@@ -251,7 +241,7 @@ $(function(){
 				lng: result[0].geometry.location.lng()
 			};
 			myGeoLocation = coords;
-			console.log(coords)
+			// console.log(coords)
 			init_map2(coords);
 		});
 	}
@@ -332,8 +322,7 @@ function search_city() {
 					result[0].geometry.location.lat(),
 					result[0].geometry.location.lng()
 				];
-				// myGeoLocation = coords;
-				console.log(coords)
+				// console.log(coords)
 				find_brewery("auto", coords);
 			})
 		}
@@ -390,11 +379,10 @@ function search_zip() {
 				result[0].geometry.location.lng()
 			];
 			// myGeoLocation = coords;
-			console.log(coords)
+			// console.log(coords)
 			find_brewery("auto", coords);
 		})
 	}
-	
 }
 
 function clear_fields() {
@@ -402,16 +390,12 @@ function clear_fields() {
 	$('#zip').val("");
 }
 
-function find_brewery2(x, y) {
-	console.log(x)
-	console.log(y)
-}
 function find_brewery(search_param, data) {
 	// alert(search_param)
 	$.get("lookup.php", { info: data, method: search_param, dataType: "json"})
 		.done(function(response){
 			// console.log(data);
-			console.log(JSON.parse(response));
+			// console.log(JSON.parse(response));
 
 			var data_arr = JSON.parse(response).data;
 			// console.log(data_arr[0].longitude)
@@ -493,7 +477,7 @@ function find_brewery(search_param, data) {
 					markerData.push(markerObj);
 					// console.log(markerObj)
 				}
-				console.log(data);
+				// console.log(data);
 				// Note, this is passing an array here.
 				init_map2(data);
 			}	
@@ -534,7 +518,7 @@ function init_map2(loc) {
        infoWindow.close();
     });
     google.maps.event.addListener(map, 'click', function(event) {
-    	console.log(event.latLng.lat()+" and "+event.latLng.lng());
+    	// console.log(event.latLng.lat()+" and "+event.latLng.lng());
 	});
 }
 
@@ -580,7 +564,7 @@ function create_marker(latlng, name, addr, local, reg) {
 	// This event expects a click on a marker
 	google.maps.event.addListener(marker, 'click', function() {
 		if(infoWindow){
-			console.log('im true')
+			// console.log('im true')
      		infoWindow.close();
      	}
 		infoWindow = new google.maps.InfoWindow({
@@ -591,7 +575,7 @@ function create_marker(latlng, name, addr, local, reg) {
 	});
 	google.maps.event.addListener(marker, 'mouseover', function() {
 		if(infoWindow){
-			console.log('im true')
+			// console.log('im true')
      		infoWindow.close();
      	}
 		infoWindow = new google.maps.InfoWindow({
@@ -685,7 +669,7 @@ function trailCall(arr){
 				zoom: 8,
 				center: loc.getCenter()
 			});
-			console.log(locations)
+			// console.log(locations)
 			setMarkers(map, locations)
 
 			google.maps.event.addListener(map, "center_changed", function() {
@@ -773,7 +757,7 @@ function setMarkers(map, locations) {
 				var Url = locations[i].url;
 				var latlng = locations[i].latlng;
 				// console.log(latlng.lat());
-				console.log('fuck2')
+				// console.log('fuck2')
 				latlangSet = new google.maps.LatLng(latlng.lat(), latlng.lng());
 				var marker = new google.maps.Marker({map:map, title:name, position:latlangSet })
 				marker.content = "<div class='fuckYeah' style='color:#333'><h4>"+name+"</h4><p>"+activity+"</p><p>"+cityState+"</p><p>"+Url+"</p>";
@@ -803,14 +787,55 @@ function flickrCall(loc) {
 	}
 	else { keyword = ""; }
 	var imgSrcs = [];
-	// var size = $('#size').val(),
-			lat = loc.lat,
-			lon = loc.lng,
-			flkrKey = "84581076bd0125f924d6fc410596cf3a",
-			baseUrl = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key="+flkrKey+"&lat="+lat+"&lon=+"+lon+keyword+"&radius=10&per_page=20&page=1&format=json&nojsoncallback=1";
-	console.log(baseUrl)
+	var imageIds = [];
+	var curImg;
+	var newimg;
+	var size = $('#size').val();
+	var	lat = loc.lat,
+		lon = loc.lng,
+		flkrKey = "84581076bd0125f924d6fc410596cf3a",
+		baseUrl = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key="+flkrKey+"&lat="+lat+"&lon=+"+lon+keyword+"&radius=10&per_page=20&page=1&format=json&nojsoncallback=1";
+	// console.log(baseUrl)
+	
+	$('#prev').click(function() {
+		if(imageIds.length > 0) {
+			newImg = curImg - 1;
+			if (newImg < 0){
+				newImg += imageIds.length;
+			} 
+			// console.log(newImg+" newImg")
+			// console.log(curImg+" curImg")
+			$('#img'+curImg).hide('fade', function() {
+				$('#img'+newImg).show('fade');
+			});
+			
+			curImg = newImg;
+		}
+	})
+
+	$('#next').click(function() {
+		if(imageIds.length > 0) {
+			newImg = curImg + 1;
+			if (newImg > imageIds.length -1){
+				newImg -= imageIds.length;
+			} 
+			// console.log(newImg+" newImg")
+			// console.log(curImg+" curImg")
+			$('#img'+curImg).hide('fade', function() {
+				$('#img'+newImg).show('fade');
+			});
+			curImg = newImg;
+		}
+	})
+
+
+
+
+
+
 
 	$.getJSON(baseUrl, function(data){
+		
 		// console.log(data);
 		if (data.photos.photo.length > 0) {
 			$.each(data.photos.photo, function (index, item) {
@@ -830,46 +855,48 @@ function flickrCall(loc) {
 				})
 			})
 		}
-		var slideShow = document.getElementById('slideShow');
-		
-		var e = $('#slideShow');
-		// console.log(e);
-		e.css('background-color', 'red')
-		$(".carousel").carousel({interval: 1000, pause: "hover"});
-		setTimeout(function(){
-
-			// console.log(imgSrcs.length)
-
-			for(var i in imgSrcs){
-				console.log(i)
-				var div = document.createElement('div');
-				var img = document.createElement('img');
-				img.src = imgSrcs[i];
-				img.setAttribute('alt', 'Fun Flickr Photo')
-				img.setAttribute('class', 'flkrSlide');
-				div.setAttribute('class', 'item');
-				if(i == 0) {
-					img.setAttribute('class', 'active');
-				}
-				div.appendChild(img);
-				slideShow.appendChild(div);
-
-				// console.log(img);
-			}
-
-			// for(var j in e) {
-			// 		if(j != 0){
-			// 			e[j].remove();	
-			// 		}
-			// 		// console.log(e[j]);
-			// 	}
-		},1000)
-		
 	})
-	// if(imgUrls.length < 1) {
-	// 	alert('Sorry, no images were found for this location and this keyword.');
-	// }
-	// console.log(imgUrls.length)
+
+	// Wait 1 sec for images to be loaded from Flickr call
+	// After that, create img element for each image
+	// set class, id, and alt, and append to parent div.
+	// Note, they are all hidden from imgDefault class
+	setTimeout(function(){
+		// imgSrcs
+		// console.log(imgSrcs.length)
+		var viewer = $('#imageViewer');
+		viewer.empty();
+
+		for(var i in imgSrcs){
+			// console.log(i)
+			
+			var img = document.createElement('img');
+			img.src = imgSrcs[i];
+			img.setAttribute('alt', 'Fun Flickr Photo')
+			img.setAttribute('class', 'imgDefault');
+			// img.style.maxWidth = '100%';
+			img.style.maxHeight = '32em';
+			// img.setAttribute('class', 'img-responsive')
+			var imageId = 'img'+i;
+			img.setAttribute('id', imageId);
+			imageIds.push(imageId);
+			// console.log(imageIds)
+			// console.log(img)
+			viewer.append(img);	
+		}
+
+		if(imgSrcs.length < 1) {
+			alert('Sorry, no images were found for this location and this keyword.');
+		}
+		else {
+			$('#'+imageIds[0]).show();
+			curImg = 0;
+		}
+		mapInitPhoto()
+	},1000)
+	
+
+	
 
 
 }
@@ -879,7 +906,32 @@ function flickrLocationCall(lat, lon) {
 
 }
 
+function mapInitPhoto() {
+		// console.log(latLng.lat)
+		// console.log(latLng.lng)
+		myLtLn = new google.maps.LatLng(currentLoc);
+		
+		var mapOptions = {
+			center: myLtLn,
+			zoom: currentZoom,
+			mapTypeId: 'roadmap',
+			scrollwheel: false
+		};
+		//console.log(mapOptions.center);
+		var photoMap = new google.maps.Map($('#tab-map3').get(0), mapOptions);
+		
+		google.maps.event.addListener(photoMap, 'idle', function() {
+			currentLoc = {lat: photoMap.getCenter().lat(), lng: photoMap.getCenter().lng()}
+		    currentZoom = photoMap.getZoom();
+		})
 
+		var marker = new google.maps.Marker({
+			postion: myLtLn,
+			map: photoMap,
+			title: 'this is the spot'
+		})
+
+	}
 
 
 
