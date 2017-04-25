@@ -4,8 +4,8 @@
 	<title>Fun Finder 4000</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name=”Description” content=”Finder 4000 is a tool to locate prime recreational opportunities close to home or when traveling. We provide content about food, beer, hiking, camping and other pursuits.”>
-	<meta name=”Keywords” content=”fun beer food wine hiking camping skiing biking fishing music vermont colorado”>
+	<meta name="Description” content="Finder 4000 is a tool to locate prime recreational opportunities close to home or when traveling. We provide content about food, beer, hiking, camping and other pursuits.">
+	<meta name="Keywords" content="fun beer food wine hiking camping skiing biking fishing music vermont colorado">
   	<meta name="author" content="Pierce Gresham">
 	<!-- Bootstrap CSS CDN -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -19,11 +19,6 @@
 	<script type="text/javascript" src="jq/jquery-3.2.1.js"></script>
 	<!-- jQueryUI dowload -->
 	<script type="text/javascript" src="jq/jquery-ui.js"></script>
-
-	<!-- bxSlider Javascript file -->
-	<script src="js/jquery.bxslider.min.js"></script>
-	<!-- bxSlider CSS file -->
-	<link href="css/jquery.bxslider.min.css" rel="stylesheet" />
 
 	<!-- Bootstrap JS CDN -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -148,38 +143,23 @@
 											</div>
 											
 										</div>
-											
-										
-										
-
-
-				
-
-
-
-										
 									</form>
-
-									
 				    			</div>
 				    			<div class="col-sm-12 tab-info" id="hike-results">
 				    				<h4 class="section-header">Search Results</h4>
-
 				    			</div>
 				    		</div>
 				    		<div class="col-sm-6">
 				    			<div class="col-sm-12 tab-map" id="tab-map0">Map here</div>
 				    		</div>
-								<div class="col-sm-12" style="height: 5em;border: 1px solid red;">bottom div</div>
+								<div class="col-sm-12 bottom-div"></div>
 				    	</div>
 				    </section>
-
-			
 				  </div>
 				  <div id="fragment-2" class="tabs" >
 				   <section>
 				    	<div class="row">
-				    		<div class="col-sm-6" style="overflow: scroll">
+				    		<div class="col-sm-6" >
 				    			<div class="col-sm-12 tab-form" id="beer-form">
 				    			
 										<!-- Brewery Form -->
@@ -222,7 +202,7 @@
 				    		<div class="col-sm-6">
 				    			<div class="col-sm-12 tab-map" id="tab-map1"></div>
 				    		</div>
-								<div class="col-sm-12" style="height: 5em;border: 1px solid red;">bottom div</div>
+								<div class="col-sm-12 bottom-div"></div>
 				    	</div>
 				    </section>
 				  </div>
@@ -236,7 +216,7 @@
 				    		<div class="col-sm-6">
 				    			<div  id="tab-map2" class="col-sm-12 tab-map">Map here</div>
 				    		</div>
-								<div class="col-sm-12" style="height: 5em;border: 1px solid red;">bottom div</div>
+								<div class="col-sm-12 bottom-div"></div>
 				    	</div>
 				    </section>
 				  </div>
@@ -245,11 +225,7 @@
 				    	<div class="row">
 				    		<div class="col-sm-6">
 				    			<div class="col-sm-12 tab-form text-center">
-				    				
 
-
-										
-<!--  -->
 										<h3>Flickr&copy Fun</h3>
 										<p>Enter a keyword to search on. <em>Center</em> the map over an area you are interested in.</p>
 										<form class="form-default" action="" id="photo-form">
@@ -276,7 +252,7 @@
 											
 										</div>	
 										<div class="imageControls text-center" >
-											<div class="imgButttons">
+											<div class="imgButttons" style="color:#333;">
 												<button class="imageBtn" id="prev"><span class="glyphicon glyphicon-menu-left"></span><span class="glyphicon glyphicon-menu-left"></span></button>
 												<button class="imageBtn" id="next"><span class="glyphicon glyphicon-menu-right"></span><span class="glyphicon glyphicon-menu-right"></span></button>
 											</div>

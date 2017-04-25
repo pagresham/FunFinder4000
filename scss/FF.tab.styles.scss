@@ -291,7 +291,7 @@ body {
 	box-shadow: 0px 0px 20px #111 inset;
 }
 .tab-info {
-	min-height: 18em;
+	min-height: 28em;
 	// border: 2px solid red;
 	padding: .5em;
 	background-color: rgba(200, 200, 200, .3);
@@ -299,7 +299,7 @@ body {
 	box-shadow: 0px 0px 20px #111 inset;
 }
 .tab-map {
-	min-height: 36em;
+	min-height: 46em;
 	// border: 2px solid red;
 	padding: .5em;
 	background-color: rgba(200, 200, 200, .3);
@@ -325,8 +325,8 @@ body {
 }
 
 #output {
-	min-height: 18em;
-	// overflow: scroll;
+	height: 29em;
+	
 }
 .ui-widget-content .brewName {
 	color: white;
@@ -364,7 +364,8 @@ body {
 	}
 }
 #hike-results {
-	
+	height: 32em;
+	overflow: scroll;
 }
 #trail-search-btn {
 
@@ -424,8 +425,8 @@ body {
 	margin: .5em;
 }
 #tab-map3 {
-	height: 18em;
-
+	height: 27em;
+	margin-top: 1em;
 	// border: 2px solid red;
 	padding: .5em;
 	background-color: rgba(200, 200, 200, .3);
@@ -433,10 +434,10 @@ body {
 	box-shadow: 0px 0px 20px #111 inset;
 }
 #photo-info {
-	height: 36em;
+	height: 46em;
 }
 #imageViewer { 
-	min-height: 32em;
+	min-height: 41em;
 	overflow: hidden;
 }
 .imgDefault {
@@ -447,7 +448,7 @@ body {
 
 // ========= Bottom Div ========= //
 .bottom-div {
-	height: 1em;
+	height: 2em;
 	border: none;
 }
 

@@ -125,12 +125,6 @@ $(function(){
 	})
 	
 
-
-
-
-
-
-
 	// ===========  Functions ran at page load ================= //
 
 	// Initialize tooltips 
@@ -145,12 +139,7 @@ $(function(){
 	getZipFromHash();
 	 // console.log(zip);
 	 //console.log(current_loc);
-	 
-
-	 
-
-
-
+	
 // =========== Function Definitions ============= //
 
 // constructor for markerObjects
@@ -247,8 +236,6 @@ $(function(){
 	}
 
 
-
-
 	/**
 	 * Check if GEOLOCATION is available to user.
 	 * If yes return latlng, if not return default latlng;
@@ -269,11 +256,7 @@ $(function(){
 	    }	    
 	}
 
-
 //// Maybe I need to put a pause in somewhere so the data can get updated before I use it ??!!??
-
-
-
 
 	function mapInit(latLng, mapId) {
 		// console.log(latLng.lat)
@@ -717,13 +700,6 @@ function trailCall(arr){
 				trailsDiv.setAttribute('class', 'trailText');
 				$('#hike-results').append(trailsDiv);
 
-
-
-
-
-
-
-
 			} // end IF lat and lon are not null
 		} // for loop
 		
@@ -748,7 +724,7 @@ function trailCall(arr){
 }
 // function 
 function setMarkers(map, locations) {
-			console.log("fuck1")
+			console.log("fuck1");
 			var marker, i;
 			for(i=0;i<locations.length;i++) {
 				var name = locations[i].name;
@@ -759,7 +735,7 @@ function setMarkers(map, locations) {
 				// console.log(latlng.lat());
 				// console.log('fuck2')
 				latlangSet = new google.maps.LatLng(latlng.lat(), latlng.lng());
-				var marker = new google.maps.Marker({map:map, title:name, position:latlangSet })
+				marker = new google.maps.Marker({map:map, title:name, position:latlangSet });
 				marker.content = "<div class='fuckYeah' style='color:#333'><h4>"+name+"</h4><p>"+activity+"</p><p>"+cityState+"</p><p>"+Url+"</p>";
 				var infowindow = new google.maps.InfoWindow();
 				
@@ -767,13 +743,13 @@ function setMarkers(map, locations) {
 				// http://stackoverflow.com/questions/3576488/google-maps-infowindow-only-loading-last-record-on-markers
 
 				google.maps.event.addListener(marker, 'click', function () {
-            infowindow.setContent(this.content);
-            infowindow.open(this.getMap(), this);
-        });
-        google.maps.event.addListener(marker, 'mouseover', function () {
-            infowindow.setContent(this.content);
-            infowindow.open(this.getMap(), this);
-        });
+	            infowindow.setContent(this.content);
+	            infowindow.open(this.getMap(), this);
+		        });
+		        google.maps.event.addListener(marker, 'mouseover', function () {
+		            infowindow.setContent(this.content);
+		            infowindow.open(this.getMap(), this);
+		        });
 			}
 		}
 
@@ -821,17 +797,12 @@ function flickrCall(loc) {
 			} 
 			// console.log(newImg+" newImg")
 			// console.log(curImg+" curImg")
-			$('#img'+curImg).hide('fade', function() {
-				$('#img'+newImg).show('fade');
+			$('#img'+curImg).hide('slide', function() {
+				$('#img'+newImg).show('slide');
 			});
 			curImg = newImg;
 		}
 	})
-
-
-
-
-
 
 
 	$.getJSON(baseUrl, function(data){
@@ -842,11 +813,11 @@ function flickrCall(loc) {
 				// console.log(item);
 				var sizeUrl = "https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key="+flkrKey+"&photo_id="+item.id+"&format=json&nojsoncallback=1";
 				$.getJSON(sizeUrl, function(data) {
-					// console.log(data.sizes.size)
+					console.log(data.sizes.size)
 					$.each(data.sizes.size, function(i, item) {
 						// console.log(item);
 						// Hardcoded a value in here.
-						if(item.height ==  500) {
+						if(item.height ==  640) {
 							// console.log(item);
 							imgSrcs.push(item.source);
 							// console.log(imgUrls.length)
@@ -876,7 +847,8 @@ function flickrCall(loc) {
 			img.setAttribute('class', 'imgDefault');
 			img.style.maxWidth = '100%';
 			// img.style.height = 'auto';
-			img.style.maxHeight = '32em';
+			img.style.maxHeight = '38em';
+			img.style.borderRadius = "1em";
 			// img.setAttribute('class', 'img-responsive')
 			var imageId = 'img'+i;
 			img.setAttribute('id', imageId);

@@ -214,14 +214,14 @@ body {
   box-shadow: 0px 0px 20px #111 inset; }
 
 .tab-info {
-  min-height: 18em;
+  min-height: 28em;
   padding: .5em;
   background-color: rgba(200, 200, 200, 0.3);
   border-radius: .2em;
   box-shadow: 0px 0px 20px #111 inset; }
 
 .tab-map {
-  min-height: 36em;
+  min-height: 46em;
   padding: .5em;
   background-color: rgba(200, 200, 200, 0.3);
   border-radius: .3em;
@@ -239,7 +239,7 @@ body {
   margin-bottom: 1em; }
 
 #output {
-  min-height: 18em; }
+  height: 29em; }
 
 .ui-widget-content .brewName {
   color: white; }
@@ -262,6 +262,10 @@ body {
   #hike-form select {
     max-width: 10em;
     height: 2em; }
+
+#hike-results {
+  height: 32em;
+  overflow: scroll; }
 
 .ui-tabs-nav {
   background-color: #333;
@@ -310,24 +314,25 @@ body {
   margin: .5em; }
 
 #tab-map3 {
-  height: 18em;
+  height: 27em;
+  margin-top: 1em;
   padding: .5em;
   background-color: rgba(200, 200, 200, 0.3);
   border-radius: .3em;
   box-shadow: 0px 0px 20px #111 inset; }
 
 #photo-info {
-  height: 36em; }
+  height: 46em; }
 
 #imageViewer {
-  min-height: 32em;
+  min-height: 41em;
   overflow: hidden; }
 
 .imgDefault {
   display: none; }
 
 .bottom-div {
-  height: 1em;
+  height: 2em;
   border: none; }
 
 /*# sourceMappingURL=FF.tab.styles.css.map */

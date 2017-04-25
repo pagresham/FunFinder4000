@@ -20,10 +20,7 @@
 	<!-- jQueryUI dowload -->
 	<script type="text/javascript" src="jq/jquery-ui.js"></script>
 
-	<!-- bxSlider Javascript file -->
-	<script src="js/jquery.bxslider.min.js"></script>
-	<!-- bxSlider CSS file -->
-	<link href="css/jquery.bxslider.min.css" rel="stylesheet" />
+	
 
 	<!-- Bootstrap JS CDN -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
