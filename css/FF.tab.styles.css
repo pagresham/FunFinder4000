@@ -232,7 +232,8 @@ body {
   margin: .5em .2em; }
 
 #beer-results-panel {
-  min-height: 22em; }
+  min-height: 22em;
+  overflow: scroll; }
 
 #beer-form {
   min-height: 13em;
