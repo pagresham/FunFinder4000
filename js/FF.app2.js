@@ -512,7 +512,7 @@ function display_markers() {
     // this variable sets the map bounds and zoom level according to markers position
 	var bounds = new google.maps.LatLngBounds();
 	//alert("marker data"+markerData);
-	var latlng
+	var latlng;
 	for (var i = 0;i < markerData.length;i++) {
 		// console.log(markerData.length)
 		var name = markerData[i].name;
@@ -656,10 +656,10 @@ function trailCall(arr){
 			setMarkers(map, locations)
 
 			google.maps.event.addListener(map, "center_changed", function() {
-      	currentLoc = {lat: map.getCenter().lat(), lng: map.getCenter().lng()}
-      	currentZoom = map.getZoom();
-     		// console.log(currentLoc);
-    	});
+		      	currentLoc = {lat: map.getCenter().lat(), lng: map.getCenter().lng()}
+		      	currentZoom = map.getZoom();
+		     		// console.log(currentLoc);
+		    });
 		}
 
 		

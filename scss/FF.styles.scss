@@ -115,9 +115,17 @@ body {
 	#footer {
 		display: none;
 	}
+	.map-aside {
+		min-width: 100%;
+	}
+	
+
 	
 
 }
+#combined-icons {
+		margin: auto;
+	}
 
 .search-btn {
 	padding: .5em;
@@ -167,8 +175,9 @@ body {
 	// border: 1px solid #ccc;
 	border-radius: .5em;
 	height: 40em;
-	padding: 1em;
-	// display: inline-block;
+	padding: 2em;
+	display: inline-block;
+	
 }
 #index-map {
 	border: 15px solid black;

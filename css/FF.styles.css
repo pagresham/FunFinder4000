@@ -81,7 +81,13 @@ body {
     margin: auto; }
 
   #footer {
-    display: none; } }
+    display: none; }
+
+  .map-aside {
+    min-width: 100%; } }
+#combined-icons {
+  margin: auto; }
+
 .search-btn {
   padding: .5em; }
 
@@ -116,7 +122,8 @@ body {
 .map-aside {
   border-radius: .5em;
   height: 40em;
-  padding: 1em; }
+  padding: 2em;
+  display: inline-block; }
 
 #index-map {
   border: 15px solid black;

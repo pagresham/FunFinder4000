@@ -73,13 +73,13 @@
 				<div class="index-one-row">
 					<section class="col-sm-7">
 						<article class="col-sm-12 mission">
-							<div class="col-sm-7" id="mission-div">
+							<div class="col-sm-12" id="mission-div">
 								<h2 class="uline2 mission-name" id="mission-name">Fun Finder 4000</h2>
 								<h3 class="uline text-info">An online resource for hiking, biking, skiing, and brewery fun.</h3>
 								
 								
 								<div class="text-center" id="index-icons" data-toggle="collapse" data-target="#icon-desc">
-									<img src="img/combined-icons.png" alt="Fun!">
+									<img class="img-responsive" src="img/combined-icons.png" id="combined-icons" alt="Fun!">
 									<!-- <img src="img/mtnBike-icon-100.png" alt="Fun!">
 									<img src="img/beer-icon-100.png" alt="Fun!">
 									<img src="img/camping-icon-100.png" alt="Fun!"> -->
@@ -95,13 +95,13 @@
 
 							</div>
 							<div class="mission-quote text-success text-right">
-									<p>FunFinder4K blends current map data with other sources of info to bring you an interesting mix of content in a Fun atmosphere.</p>
-									<h4>Enjoy, and Have Fun!</h4>	
-									<div class="family-biking">
+								<p>FunFinder4K blends current map data with other sources of info to bring you an interesting mix of content in a Fun atmosphere.</p>
+								<h4>Enjoy, and Have Fun!</h4>	
+									<!-- <div class="family-biking">
 										<img data-toggle="tooltip" data-placement="top" src="img/family-biking.png"  alt="Fun!" title="Select an image to see more details.">
-									</div>
-								</div>
-							<div class="col-sm-5"></div>
+									</div> -->
+							</div>
+							<!-- <div class="col-sm-5"></div> -->
 						</article>
 						<div class="col-xs-12 index-gallery">
 							<div id="gallery-div">
@@ -124,9 +124,9 @@
 						  </div>
 					</section>
 
-					<aside class="map-aside col-sm-5" >
-						<div id="index-map" style="margin: 2em;"></div>
-					</aside>
+					<div class="map-aside col-sm-5">
+						<div id="index-map"></div>
+					</div>
 				</div>
 				<div class="clearfix"></div>
 		</div>
