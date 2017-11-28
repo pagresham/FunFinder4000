@@ -25,7 +25,7 @@
 	<!-- Bootstrap JS CDN -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/FF.styles.css">
-	<script type="text/javascript" src="js/FF.app.js"></script>
+	<script type="text/javascript" src="js/FF.app2.js"></script>
 	<link rel="stylesheet" type="text/css"
           href="https://fonts.googleapis.com/css?family=Fjalla One">
   <link rel="stylesheet" type="text/css"
